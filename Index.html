@@ -1,1 +1,719 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ליאור בן משה • קונדיטוריה טבעונית</title>
+  <meta name="description" content="ליאור בן משה - קונדיטוריה טבעונית בעבודת יד. אתר ההזמנות, וואטסאפ, רשתות חברתיות וקבוצות וואטסאפ לפי אזורים." />
+  <meta name="theme-color" content="#121214" />
 
+  <!-- Google Fonts: Heebo (clean, sharp modern Hebrew typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Configuration: Dark-Luxury Patisserie Palette matching liorbenmoshe.vercel.app -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: {
+              DEFAULT: '#121214',
+              soft: '#161618',
+              card: '#1E1E22',
+              elevated: '#24242A',
+            },
+            gold: {
+              light: '#FCD34D',
+              cream: '#F5C26B',
+              amber: '#F59E0B',
+              deep: '#E67E00',
+            },
+            vegan: {
+              DEFAULT: '#10B981',
+              whatsapp: '#25D366',
+              dark: '#059669',
+            },
+          },
+          fontFamily: {
+            sans: ['Heebo', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          boxShadow: {
+            card: '0 6px 24px -6px rgba(0, 0, 0, 0.45)',
+            'card-hover': '0 12px 30px -6px rgba(245, 158, 11, 0.22)',
+            cta: '0 12px 32px -6px rgba(245, 158, 11, 0.48)',
+            'cta-hover': '0 16px 38px -4px rgba(245, 158, 11, 0.62)',
+            medallion: '0 0 0 4px rgba(245, 158, 11, 0.16), 0 0 36px rgba(245, 158, 11, 0.34)',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(14px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            shimmerSweep: {
+              '0%': { transform: 'translateX(140%) skewX(-22deg)' },
+              '100%': { transform: 'translateX(-240%) skewX(-22deg)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.65', transform: 'scale(1)' },
+              '50%': { opacity: '0.95', transform: 'scale(1.04)' },
+            },
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+            shimmer: 'shimmerSweep 1.15s ease-in-out',
+            'pulse-glow': 'pulseGlow 4.5s ease-in-out infinite',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="min-h-screen bg-obsidian font-sans text-white antialiased selection:bg-gold-amber/30 selection:text-gold-light overflow-x-hidden relative">
+
+  <!-- ========================================================= -->
+  <!-- AMBIENT DARK-LUXURY RADIAL BACKGROUND GLOWS               -->
+  <!-- ========================================================= -->
+  <div aria-hidden="true" class="pointer-events-none fixed inset-0 overflow-hidden -z-10">
+    <!-- Warm Golden-Amber Aura Behind Top Logo -->
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[380px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.18)_0%,rgba(230,126,0,0.06)_42%,rgba(18,18,20,0)_74%)] animate-pulse-glow"></div>
+    <!-- Subtle Vegan Emerald Accent Glow Mid-Lower Left -->
+    <div class="absolute top-[55%] -left-24 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(16,185,129,0.09)_0%,rgba(18,18,20,0)_70%)]"></div>
+    <!-- Subtle Amber Ambient Accent Bottom Right -->
+    <div class="absolute -bottom-24 -right-20 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(245,158,11,0.08)_0%,rgba(18,18,20,0)_70%)]"></div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MAIN CENTERED MOBILE-FIRST CONTAINER (MAX 480PX)          -->
+  <!-- ========================================================= -->
+  <main class="mx-auto w-full max-w-[480px] px-4 pt-5 pb-12 sm:px-6 sm:pt-8 sm:pb-16 relative">
+
+    <!-- Subtle Elevated Frame on Tablet / Desktop -->
+    <div class="sm:rounded-[34px] sm:bg-obsidian-soft/85 sm:backdrop-blur-md sm:border sm:border-white/[0.07] sm:px-6 sm:py-7 sm:shadow-[0_24px_64px_-16px_rgba(0,0,0,0.75)] relative">
+
+      <!-- ======================================================= -->
+      <!-- TOP FLOATING ACTION BAR: SUBTLE CIRCULAR SHARE BUTTON   -->
+      <!-- (Positioned top-left in RTL via justify-end)            -->
+      <!-- ======================================================= -->
+      <div class="flex items-center justify-end mb-1">
+        <button
+          id="shareBtn"
+          type="button"
+          aria-label="שיתוף העמוד"
+          title="שיתוף העמוד"
+          class="group flex h-11 w-11 items-center justify-center rounded-full bg-obsidian-card/90 hover:bg-obsidian-elevated border border-white/10 hover:border-gold-amber/50 text-zinc-300 hover:text-gold-light shadow-card transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+        >
+          <!-- Crisp Inline Share SVG -->
+          <svg class="h-5 w-5 transition-transform duration-200 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7" />
+            <polyline points="16 6 12 2 8 6" />
+            <line x1="12" y1="2" x2="12" y2="15" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- ======================================================= -->
+      <!-- HEADER: OFFICIAL LOGO MEDALLION & BRAND IDENTITY        -->
+      <!-- ======================================================= -->
+      <header class="flex flex-col items-center text-center mb-7 opacity-0 animate-fade-up">
+
+        <!-- Luxurious Circular Medallion Framing Official Logo (1000251877.jpg) -->
+        <div class="relative mb-5">
+          <!-- Soft Warm Radial Halo directly behind badge -->
+          <div aria-hidden="true" class="absolute -inset-3 rounded-full bg-gradient-to-tr from-gold-deep/30 via-gold-amber/25 to-vegan/20 blur-xl opacity-85"></div>
+
+          <!-- Outer Golden Ring + Pure White Circular Medallion -->
+          <div class="relative flex h-[136px] w-[136px] items-center justify-center rounded-full bg-white p-2.5 border-[3px] border-gold-amber shadow-medallion overflow-hidden">
+            <!-- Official Uploaded Brand Logo -->
+            <img
+              id="officialLogo"
+              src="1794287080889~2.jpg"
+              alt="לוגו ליאור בן משה - קונדיטוריה טבעונית"
+              class="h-full w-full object-contain rounded-full"
+              onerror="this.classList.add('hidden'); document.getElementById('logoFallback').classList.remove('hidden');"
+            />
+
+            <!-- Graceful Bespoke SVG Fallback (Shown only if local image file is unavailable in sandbox) -->
+            <div id="logoFallback" class="hidden flex h-full w-full flex-col items-center justify-center text-center select-none">
+              <svg class="h-24 w-24" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lior Ben Moshe Vegan Pastry">
+                <!-- Curved top script wordmark -->
+                <text x="60" y="25" text-anchor="middle" fill="#D98A3C" stroke="#3D1F14" stroke-width="0.7" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="14">Lior</text>
+                <text x="60" y="40" text-anchor="middle" fill="#D98A3C" stroke="#3D1F14" stroke-width="0.7" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="15">Ben Moshe</text>
+                <!-- Botanical Vegan Leaves -->
+                <path d="M26 68C19 64 16 56 20 50C26 53 30 59 26 68Z" fill="#5D8047" stroke="#3D1F14" stroke-width="1.3"/>
+                <path d="M90 54C96 49 102 52 101 59C96 62 91 60 90 54Z" fill="#5D8047" stroke="#3D1F14" stroke-width="1.3"/>
+                <!-- Artisanal Golden Croissant -->
+                <path d="M32 76C30 60 44 48 60 48C76 48 89 60 87 76C80 84 68 87 60 87C52 87 39 84 32 76Z" fill="#E68A35" stroke="#3D1F14" stroke-width="1.8"/>
+                <ellipse cx="62" cy="60" rx="14" ry="10" transform="rotate(-14 62 60)" fill="#F7D19C" stroke="#3D1F14" stroke-width="1.5"/>
+                <path d="M54 61C58 55 66 55 69 60C66 65 57 65 54 61Z" stroke="#B86B28" stroke-width="1.2"/>
+                <path d="M39 74C45 67 51 67 54 78M68 78C72 68 78 68 82 74" stroke="#9C4D18" stroke-width="1.4" stroke-linecap="round"/>
+                <!-- Mini Whisk on Right -->
+                <path d="M94 82L101 70" stroke="#3D1F14" stroke-width="2" stroke-linecap="round"/>
+                <ellipse cx="105" cy="63" rx="5" ry="9" transform="rotate(26 105 63)" stroke="#3D1F14" stroke-width="1.4" fill="#F5C26B" fill-opacity="0.45"/>
+                <!-- Bottom Label -->
+                <text x="60" y="101" text-anchor="middle" fill="#D98A3C" stroke="#3D1F14" stroke-width="0.5" font-family="Georgia, serif" font-weight="700" font-size="10.5" letter-spacing="1">VEGAN</text>
+                <text x="60" y="112" text-anchor="middle" fill="#D98A3C" stroke="#3D1F14" stroke-width="0.5" font-family="Georgia, serif" font-weight="700" font-size="9.5" letter-spacing="1.2">PASTRY</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand Main Title -->
+        <h1 class="text-3xl sm:text-[34px] font-extrabold tracking-tight text-white leading-tight">
+          ליאור בן משה
+        </h1>
+
+        <!-- Brand Subtitle with Warm Golden Accents -->
+        <div class="mt-2 inline-flex flex-wrap items-center justify-center gap-2 text-gold-cream font-medium text-sm sm:text-[15px]">
+          <span class="h-1.5 w-1.5 rounded-full bg-gold-amber"></span>
+          <span class="whitespace-normal">קונדיטוריה טבעונית בעבודת יד</span>
+          <span class="h-1.5 w-1.5 rounded-full bg-vegan"></span>
+        </div>
+      </header>
+
+      <!-- ======================================================= -->
+      <!-- 1. PRIMARY CTA BUTTON: ORDERING WEBSITE (MOST PROMINENT)-->
+      <!-- Matches "לקופה" vibrant golden-orange gradient on site  -->
+      <!-- ======================================================= -->
+      <section aria-label="לאתר ההזמנות" class="mb-6 opacity-0 animate-fade-up [animation-delay:80ms]">
+        <a
+          href="https://liorbenmoshe.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex min-h-[72px] w-full items-center justify-between gap-3 overflow-hidden rounded-[28px] bg-gradient-to-l from-[#FFA726] via-[#F59E0B] to-[#E67E00] px-4 py-4 sm:px-5 text-obsidian shadow-cta transition-all duration-300 hover:-translate-y-0.5 hover:shadow-cta-hover active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-light focus:ring-offset-2 focus:ring-offset-obsidian"
+        >
+          <!-- Subtle Hover Shimmer Sweep -->
+          <span aria-hidden="true" class="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-r from-transparent via-white/35 to-transparent -translate-x-[260%] group-hover:animate-shimmer"></span>
+
+          <!-- Right Content: Icon Badge + Full Readable Text -->
+          <div class="relative z-10 flex items-center gap-3.5 flex-1">
+            <!-- Shopping Cart / Bag Icon Badge -->
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-obsidian/15 border border-obsidian/10 transition-transform duration-300 group-hover:scale-105">
+              <svg class="h-6 w-6 text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+            </div>
+            <div class="text-right">
+              <div class="text-lg sm:text-[19px] font-extrabold leading-snug text-obsidian whitespace-normal">
+                לאתר ההזמנות
+              </div>
+              <p class="text-[13px] font-semibold text-obsidian/80 leading-snug mt-0.5 whitespace-normal">
+                מאפים טבעוניים טריים להזמנה אונליין
+              </p>
+            </div>
+          </div>
+
+          <!-- Left-Pointing RTL Chevron Badge -->
+          <div class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-obsidian/12 transition-transform duration-300 group-hover:-translate-x-1 group-hover:bg-obsidian/20">
+            <svg class="h-5 w-5 text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </div>
+        </a>
+      </section>
+
+      <!-- ======================================================= -->
+      <!-- 2. DIRECT CONTACT & SOCIAL LINKS (FULL-WIDTH PILL CARDS)-->
+      <!-- ======================================================= -->
+      <section aria-label="יצירת קשר ורשתות חברתיות" class="space-y-3 mb-8 opacity-0 animate-fade-up [animation-delay:160ms]">
+
+        <!-- 2.1 Direct WhatsApp Chat -->
+        <a
+          href="https://wa.me/972547741436"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex min-h-[64px] w-full items-center justify-between gap-3 rounded-[26px] bg-obsidian-card hover:bg-obsidian-elevated border border-white/10 hover:border-gold-amber/55 px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+        >
+          <div class="flex items-center gap-3.5 flex-1">
+            <!-- Green WhatsApp Circular Badge -->
+            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-vegan-whatsapp/15 text-vegan-whatsapp border border-vegan-whatsapp/30 transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.031 2C6.502 2 2 6.484 2 12.008c0 1.976.578 3.884 1.672 5.524L2.5 22l4.61-1.208a10.02 10.02 0 0 0 4.921 1.288h.004c5.527 0 10.03-4.486 10.03-10.009C22.065 6.485 17.56 2 12.031 2zm5.854 14.15c-.246.693-1.443 1.326-1.994 1.404-.502.072-1.153.103-1.86-.122-.43-.137-.983-.32-1.694-.626-2.98-1.284-4.925-4.303-5.074-4.502-.149-.199-1.21-1.61-1.21-3.072 0-1.462.764-2.181 1.036-2.478.272-.298.594-.372.792-.372.198 0 .396.002.57.01.183.009.428-.07.67.512.248.596.842 2.058.916 2.207.074.149.124.323.025.521-.099.198-.149.323-.297.496-.149.174-.313.388-.446.521-.149.149-.304.31-.13.608.173.298.771 1.273 1.656 2.062 1.138 1.015 2.098 1.33 2.396 1.479.297.149.471.124.645-.075.173-.198.744-.868.942-1.166.198-.297.396-.248.669-.149.272.099 1.734.818 2.031.967.297.149.496.223.57.347.074.124.074.719-.172 1.412z" />
+              </svg>
+            </div>
+            <div class="text-right">
+              <div class="text-[15.5px] font-bold text-white leading-snug whitespace-normal">
+                שיחה ישירה בוואטסאפ
+              </div>
+              <div dir="ltr" class="text-xs font-medium text-zinc-400 mt-0.5 text-right tracking-wide whitespace-normal">
+                054-774-1436
+              </div>
+            </div>
+          </div>
+          <!-- RTL Left Arrow -->
+          <svg class="h-4 w-4 shrink-0 text-zinc-500 transition-all duration-200 group-hover:-translate-x-1 group-hover:text-gold-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </a>
+
+        <!-- 2.2 Instagram -->
+        <a
+          href="https://www.instagram.com/liorbenmoshe.veganpatisserie?fqnt=MTg0b2NpNG56dncycQ=="
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex min-h-[64px] w-full items-center justify-between gap-3 rounded-[26px] bg-obsidian-card hover:bg-obsidian-elevated border border-white/10 hover:border-gold-amber/55 px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+        >
+          <div class="flex items-center gap-3.5 flex-1">
+            <!-- Subtle Instagram Gradient Circular Badge -->
+            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#F58529]/25 via-[#DD2A7B]/25 to-[#8134AF]/30 text-pink-300 border border-pink-400/30 transition-all duration-200 group-hover:from-[#F58529] group-hover:via-[#DD2A7B] group-hover:to-[#8134AF] group-hover:text-white group-hover:border-transparent">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </div>
+            <div class="text-right">
+              <div class="text-[15.5px] font-bold text-white leading-snug whitespace-normal">
+                אינסטגרם
+              </div>
+              <div dir="ltr" class="text-xs font-medium text-zinc-400 mt-0.5 text-right break-all whitespace-normal">
+                @liorbenmoshe.veganpatisserie
+              </div>
+            </div>
+          </div>
+          <!-- RTL Left Arrow -->
+          <svg class="h-4 w-4 shrink-0 text-zinc-500 transition-all duration-200 group-hover:-translate-x-1 group-hover:text-gold-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </a>
+
+        <!-- 2.3 Facebook -->
+        <a
+          href="https://www.facebook.com/share/1BnnsF9niK/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex min-h-[64px] w-full items-center justify-between gap-3 rounded-[26px] bg-obsidian-card hover:bg-obsidian-elevated border border-white/10 hover:border-gold-amber/55 px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+        >
+          <div class="flex items-center gap-3.5 flex-1">
+            <!-- Clean Facebook Blue Circular Badge -->
+            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#1877F2]/18 text-[#58A6FF] border border-[#1877F2]/35 transition-all duration-200 group-hover:bg-[#1877F2] group-hover:text-white group-hover:border-transparent">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z" />
+              </svg>
+            </div>
+            <div class="text-right">
+              <div class="text-[15.5px] font-bold text-white leading-snug whitespace-normal">
+                פייסבוק
+              </div>
+              <div class="text-xs font-medium text-zinc-400 mt-0.5 whitespace-normal">
+                העמוד הרשמי בפייסבוק
+              </div>
+            </div>
+          </div>
+          <!-- RTL Left Arrow -->
+          <svg class="h-4 w-4 shrink-0 text-zinc-500 transition-all duration-200 group-hover:-translate-x-1 group-hover:text-gold-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </a>
+      </section>
+
+      <!-- ======================================================= -->
+      <!-- 3. WHATSAPP GROUPS SECTION                              -->
+      <!-- Features Signature Amber-to-Green Gradient Dividers     -->
+      <!-- ======================================================= -->
+      <section aria-label="קבוצות הוואטסאפ שלנו" class="opacity-0 animate-fade-up [animation-delay:240ms]">
+
+        <!-- Signature Section Header (Amber line on right, Emerald Green line on left - matches site) -->
+        <div class="mb-5 text-center">
+          <div class="flex items-center gap-3">
+            <!-- Warm Amber Gradient Line -->
+            <span class="h-[2px] flex-1 rounded-full bg-gradient-to-l from-gold-amber/80 via-gold-amber/30 to-transparent"></span>
+            <h2 class="flex items-center gap-2 text-lg sm:text-xl font-extrabold text-gold-cream tracking-tight whitespace-normal">
+              <svg class="h-5 w-5 shrink-0 text-vegan-whatsapp" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.031 2C6.502 2 2 6.484 2 12.008c0 1.976.578 3.884 1.672 5.524L2.5 22l4.61-1.208a10.02 10.02 0 0 0 4.921 1.288h.004c5.527 0 10.03-4.486 10.03-10.009C22.065 6.485 17.56 2 12.031 2zm5.854 14.15c-.246.693-1.443 1.326-1.994 1.404-.502.072-1.153.103-1.86-.122-.43-.137-.983-.32-1.694-.626-2.98-1.284-4.925-4.303-5.074-4.502-.149-.199-1.21-1.61-1.21-3.072 0-1.462.764-2.181 1.036-2.478.272-.298.594-.372.792-.372.198 0 .396.002.57.01.183.009.428-.07.67.512.248.596.842 2.058.916 2.207.074.149.124.323.025.521-.099.198-.149.323-.297.496-.149.174-.313.388-.446.521-.149.149-.304.31-.13.608.173.298.771 1.273 1.656 2.062 1.138 1.015 2.098 1.33 2.396 1.479.297.149.471.124.645-.075.173-.198.744-.868.942-1.166.198-.297.396-.248.669-.149.272.099 1.734.818 2.031.967.297.149.496.223.57.347.074.124.074.719-.172 1.412z" />
+              </svg>
+              <span>קבוצות הוואטסאפ שלנו</span>
+            </h2>
+            <!-- Fresh Vegan Emerald Green Gradient Line -->
+            <span class="h-[2px] flex-1 rounded-full bg-gradient-to-r from-vegan/80 via-vegan/30 to-transparent"></span>
+          </div>
+          <p class="mt-1.5 text-xs sm:text-[13px] text-zinc-400 whitespace-normal">
+            הצטרפו לעדכונים, תפריטים שבועיים וחלוקות
+          </p>
+        </div>
+
+        <!-- 3.1 Highlighted General Groups (Full-Width Dark Cards with Warm Gold / Emerald Borders) -->
+        <div class="space-y-3 mb-6">
+
+          <!-- Main Group: ראשי -->
+          <a
+            href="https://chat.whatsapp.com/DJwslqdBK7xCFjGBSfyZF8"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex min-h-[66px] w-full items-center justify-between gap-3 rounded-[26px] bg-gradient-to-l from-[#24211A] via-obsidian-card to-obsidian-card hover:from-[#2C271E] hover:via-obsidian-elevated hover:to-obsidian-elevated border border-gold-amber/35 hover:border-gold-amber/75 px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+          >
+            <div class="flex items-center gap-3.5 flex-1">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold-amber/18 text-gold-light border border-gold-amber/35 transition-all duration-200 group-hover:bg-gold-amber group-hover:text-obsidian">
+                <!-- Community Icon SVG -->
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div class="text-right">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-[15.5px] font-bold text-white leading-snug whitespace-normal">ראשי</span>
+                  <span class="inline-flex items-center rounded-full bg-gold-amber/20 border border-gold-amber/40 px-2.5 py-0.5 text-[11px] font-bold text-gold-light">
+                    מומלץ
+                  </span>
+                </div>
+                <p class="text-xs text-zinc-400 mt-0.5 leading-snug whitespace-normal">
+                  עדכונים כלליים ותפריטים
+                </p>
+              </div>
+            </div>
+            <svg class="h-4 w-4 shrink-0 text-gold-amber transition-transform duration-200 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </a>
+
+          <!-- Vegan Fair Group: היריד הטבעוני -->
+          <a
+            href="https://chat.whatsapp.com/FQPk9GkRx0s6jKJXQzU0hT?s=cl&p=a&iam=2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex min-h-[66px] w-full items-center justify-between gap-3 rounded-[26px] bg-gradient-to-l from-[#182620] via-obsidian-card to-obsidian-card hover:from-[#1D3027] hover:via-obsidian-elevated hover:to-obsidian-elevated border border-vegan/35 hover:border-vegan/75 px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-vegan/60"
+          >
+            <div class="flex items-center gap-3.5 flex-1">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-vegan/18 text-vegan border border-vegan/35 transition-all duration-200 group-hover:bg-vegan group-hover:text-obsidian">
+                <!-- Botanical Vegan Leaf Icon SVG -->
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                </svg>
+              </div>
+              <div class="text-right">
+                <div class="text-[15.5px] font-bold text-white leading-snug whitespace-normal">
+                  היריד הטבעוני
+                </div>
+                <p class="text-xs text-zinc-400 mt-0.5 leading-snug whitespace-normal">
+                  עדכונים על ירידים ואירועים
+                </p>
+              </div>
+            </div>
+            <svg class="h-4 w-4 shrink-0 text-vegan transition-transform duration-200 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- 3.2 Regional Groups Sub-Header -->
+        <div class="flex items-center justify-center gap-2 mb-3.5 mt-6">
+          <svg class="h-4 w-4 shrink-0 text-gold-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <h3 class="text-sm font-bold tracking-wide text-gold-cream whitespace-normal">
+            קבוצות לפי אזורים
+          </h3>
+        </div>
+
+        <!-- 3.3 Regional WhatsApp Groups: SINGLE-COLUMN FULL-WIDTH PILL STACK -->
+        <!-- Zero truncation guaranteed on EVERY screen down to 320px -->
+        <div class="flex flex-col gap-2.5">
+
+          <!-- 1. תל אביב והסביבה -->
+          <a
+            href="https://chat.whatsapp.com/K92ZP8FKGhw9cY9tdj7tby?s=cl&p=a&iam=2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+          >
+            <div class="flex items-center gap-3 flex-1">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
+                תל אביב והסביבה
+              </span>
+            </div>
+            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
+              <span>להצטרפות</span>
+              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </span>
+          </a>
+
+          <!-- 2. השרון -->
+          <a
+            href="https://chat.whatsapp.com/IEEOL9wkfVAAmviMTiATx3?s=cl&p=a&iam=2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+          >
+            <div class="flex items-center gap-3 flex-1">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
+                השרון
+              </span>
+            </div>
+            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
+              <span>להצטרפות</span>
+              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </span>
+          </a>
+
+          <!-- 3. ירושלים והסביבה -->
+          <a
+            href="https://chat.whatsapp.com/GRbGpZmm6AHLBOM3KbzpaI?s=cl&p=a&iam=2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+          >
+            <div class="flex items-center gap-3 flex-1">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
+                ירושלים והסביבה
+              </span>
+            </div>
+            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
+              <span>להצטרפות</span>
+              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </span>
+          </a>
+
+          <!-- 4. רחובות והסביבה -->
+          <a
+            href="https://chat.whatsapp.com/CHtj16j7D8n6pNkxPrsIz5?s=cl&p=a&iam=2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+          >
+            <div class="flex items-center gap-3 flex-1">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
+                רחובות והסביבה
+              </span>
+            </div>
+            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
+              <span>להצטרפות</span>
+              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </span>
+          </a>
+
+          <!-- 5. נתניה והסביבה -->
+          <a
+            href="https://chat.whatsapp.com/JWTuzyFU2PoAdJ9blI5iSt?s=cl&p=a&iam=2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+          >
+            <div class="flex items-center gap-3 flex-1">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
+                נתניה והסביבה
+              </span>
+            </div>
+            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
+              <span>להצטרפות</span>
+              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </span>
+          </a>
+
+          <!-- 6. צפון עד הקריות -->
+          <a
+            href="https://chat.whatsapp.com/LhoDo1DsP79DzXBymFP2fI?s=cl&p=a&iam=2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+          >
+            <div class="flex items-center gap-3 flex-1">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
+                צפון עד הקריות
+              </span>
+            </div>
+            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
+              <span>להצטרפות</span>
+              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </span>
+          </a>
+
+          <!-- 7. דרום עד באר שבע -->
+          <a
+            href="https://chat.whatsapp.com/FUs0ou6PvOqLAchQbGFERN?s=cl&p=a&iam=2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+          >
+            <div class="flex items-center gap-3 flex-1">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
+                דרום עד באר שבע
+              </span>
+            </div>
+            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
+              <span>להצטרפות</span>
+              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ======================================================= -->
+      <!-- MINIMALIST DARK-LUXURY FOOTER                           -->
+      <!-- ======================================================= -->
+      <footer class="mt-9 pt-5 border-t border-white/[0.08] text-center opacity-0 animate-fade-up [animation-delay:320ms]">
+        <p class="text-xs font-medium text-zinc-400">
+          © ליאור בן משה <span class="text-gold-amber mx-1">•</span> קונדיטוריה טבעונית
+        </p>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- ========================================================= -->
+  <!-- SLEEK DARK-AND-GOLD FLOATING TOAST (CLIPBOARD FEEDBACK)   -->
+  <!-- ========================================================= -->
+  <div
+    id="toast"
+    role="status"
+    aria-live="polite"
+    class="pointer-events-none fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 z-50 flex items-center gap-2 rounded-full bg-obsidian-elevated border border-gold-amber/50 px-5 py-2.5 text-sm font-bold text-gold-light shadow-[0_12px_32px_rgba(0,0,0,0.65)] transition-all duration-300"
+  >
+    <svg class="h-4 w-4 text-gold-amber shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+    <span id="toastText">הקישור הועתק!</span>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- INTERACTIVE SCRIPT: WEB SHARE + SAFE CLIPBOARD FALLBACK   -->
+  <!-- ========================================================= -->
+  <script>
+    (function () {
+      const shareBtn = document.getElementById('shareBtn');
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toastText');
+      let toastTimeout = null;
+
+      /**
+       * Displays a floating Hebrew toast notification at the bottom of the viewport.
+       * @param {string} message - Hebrew confirmation text
+       */
+      function showToast(message) {
+        if (!toast || !toastText) return;
+        toastText.textContent = message;
+        toast.classList.remove('opacity-0', 'translate-y-4');
+        toast.classList.add('opacity-100', 'translate-y-0');
+
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove('opacity-100', 'translate-y-0');
+          toast.classList.add('opacity-0', 'translate-y-4');
+        }, 2600);
+      }
+
+      /**
+       * Copies text using execCommand for reliable operation inside iframes & mobile webviews.
+       * @param {string} text - URL to copy
+       * @returns {boolean} True if copied successfully
+       */
+      function copyTextSafely(text) {
+        try {
+          const textArea = document.createElement('textarea');
+          textArea.value = text;
+          textArea.setAttribute('readonly', '');
+          textArea.style.position = 'fixed';
+          textArea.style.top = '-9999px';
+          textArea.style.left = '-9999px';
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          const succeeded = document.execCommand('copy');
+          document.body.removeChild(textArea);
+          return succeeded;
+        } catch (err) {
+          return false;
+        }
+      }
+
+      /**
+       * Handles Share button clicks: tries native mobile share first,
+       * otherwise copies the URL and shows the dark-and-gold toast.
+       */
+      if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+          const shareUrl = window.location.href;
+          const shareData = {
+            title: 'ליאור בן משה • קונדיטוריה טבעונית',
+            text: 'אתר ההזמנות, וואטסאפ, רשתות חברתיות וקבוצות הוואטסאפ של ליאור בן משה - קונדיטוריה טבעונית',
+            url: shareUrl,
+          };
+
+          if (navigator.share) {
+            try {
+              await navigator.share(shareData);
+              return;
+            } catch (error) {
+              // Ignore user-cancelled share sheets gracefully
+              if (error && error.name === 'AbortError') {
+                return;
+              }
+            }
+          }
+
+          const copied = copyTextSafely(shareUrl);
+          showToast(copied ? 'הקישור הועתק!' : 'ניתן להעתיק את כתובת העמוד מהדפדפן');
+        });
+      }
+    })();
+  </script>
+</body>
+  </html>
