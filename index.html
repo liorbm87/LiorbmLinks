@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ליאור בן משה • קונדיטוריה טבעונית</title>
- <meta name="description" content="ליאור בן משה - קונדיטוריה טבעונית בעבודת יד. אתר ההזמנות, וואטסאפ, רשתות חברתיות וקבוצות וואטסאפ לפי אזורים." />
+  <meta name="description" content="ליאור בן משה - קונדיטוריה טבעונית בעבודת יד. אתר ההזמנות, וואטסאפ, רשתות חברתיות וקבוצות וואטסאפ לפי אזורים." />
   <meta name="theme-color" content="#121214" />
 
   <!-- לוגו בלשונית הדפדפן ובמסך הבית -->
@@ -105,44 +104,44 @@
   <!-- ========================================================= -->
   <!-- MAIN CENTERED MOBILE-FIRST CONTAINER (MAX 480PX)          -->
   <!-- ========================================================= -->
-  <main class="mx-auto w-full max-w-[480px] px-4 pt-5 pb-12 sm:px-6 sm:pt-8 sm:pb-16 relative">
+  <main class="mx-auto w-full max-w-[480px] px-3.5 pt-3 pb-12 sm:px-6 sm:pt-6 sm:pb-16 relative">
 
     <!-- Subtle Elevated Frame on Tablet / Desktop -->
-    <div class="sm:rounded-[34px] sm:bg-obsidian-soft/85 sm:backdrop-blur-md sm:border sm:border-white/[0.07] sm:px-6 sm:py-7 sm:shadow-[0_24px_64px_-16px_rgba(0,0,0,0.75)] relative">
+    <div class="sm:rounded-[34px] sm:bg-obsidian-soft/85 sm:backdrop-blur-md sm:border sm:border-white/[0.07] sm:px-6 sm:py-6 sm:shadow-[0_24px_64px_-16px_rgba(0,0,0,0.75)] relative">
 
       <!-- ======================================================= -->
-      <!-- TOP FLOATING ACTION BAR: SUBTLE CIRCULAR SHARE BUTTON   -->
-      <!-- (Positioned top-left in RTL via justify-end)            -->
+      <!-- TOP FLOATING SHARE BUTTON (UNIVERSAL SHARE ICON)        -->
+      <!-- Positioned absolutely at top-left so logo sits higher   -->
       <!-- ======================================================= -->
-      <div class="flex items-center justify-end mb-1">
-        <button
-          id="shareBtn"
-          type="button"
-          aria-label="שיתוף העמוד"
-          title="שיתוף העמוד"
-          class="group flex h-11 w-11 items-center justify-center rounded-full bg-obsidian-card/90 hover:bg-obsidian-elevated border border-white/10 hover:border-gold-amber/50 text-zinc-300 hover:text-gold-light shadow-card transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
-        >
-          <!-- Crisp Inline Share SVG -->
-          <svg class="h-5 w-5 transition-transform duration-200 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7" />
-            <polyline points="16 6 12 2 8 6" />
-            <line x1="12" y1="2" x2="12" y2="15" />
-          </svg>
-        </button>
-      </div>
+      <button
+        id="shareBtn"
+        type="button"
+        aria-label="שיתוף העמוד"
+        title="שיתוף העמוד"
+        class="group absolute top-0 left-0 sm:top-5 sm:left-5 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-obsidian-card/90 hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light text-zinc-200 hover:text-gold-light shadow-card transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+      >
+        <!-- Classic Universal Share Icon (3 connected nodes) -->
+        <svg class="h-5 w-5 transition-transform duration-200 group-hover:scale-105" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="5" r="3" />
+          <circle cx="6" cy="12" r="3" />
+          <circle cx="18" cy="19" r="3" />
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+        </svg>
+      </button>
 
       <!-- ======================================================= -->
       <!-- HEADER: OFFICIAL LOGO MEDALLION & BRAND IDENTITY        -->
       <!-- ======================================================= -->
-      <header class="flex flex-col items-center text-center mb-7 opacity-0 animate-fade-up">
+      <header class="flex flex-col items-center text-center mb-5 pt-1 opacity-0 animate-fade-up">
 
-        <!-- Luxurious Circular Medallion Framing Official Logo (1000251877.jpg) -->
-        <div class="relative mb-5">
+        <!-- Luxurious Circular Medallion Framing Official Logo -->
+        <div class="relative mb-3.5">
           <!-- Soft Warm Radial Halo directly behind badge -->
           <div aria-hidden="true" class="absolute -inset-3 rounded-full bg-gradient-to-tr from-gold-deep/30 via-gold-amber/25 to-vegan/20 blur-xl opacity-85"></div>
 
           <!-- Outer Golden Ring + Pure White Circular Medallion -->
-          <div class="relative flex h-[136px] w-[136px] items-center justify-center rounded-full bg-white p-2.5 border-[3px] border-gold-amber shadow-medallion overflow-hidden">
+          <div class="relative flex h-[132px] w-[132px] items-center justify-center rounded-full bg-white p-2.5 border-[3px] border-gold-amber shadow-medallion overflow-hidden">
             <!-- Official Uploaded Brand Logo -->
             <img
               id="officialLogo"
@@ -183,7 +182,7 @@
         </h1>
 
         <!-- Brand Subtitle with Warm Golden Accents -->
-        <div class="mt-2 inline-flex flex-wrap items-center justify-center gap-2 text-gold-cream font-medium text-sm sm:text-[15px]">
+        <div class="mt-1.5 inline-flex flex-wrap items-center justify-center gap-2 text-gold-cream font-medium text-sm sm:text-[15px]">
           <span class="h-1.5 w-1.5 rounded-full bg-gold-amber"></span>
           <span class="whitespace-normal">קונדיטוריה טבעונית בעבודת יד</span>
           <span class="h-1.5 w-1.5 rounded-full bg-vegan"></span>
@@ -194,12 +193,12 @@
       <!-- 1. PRIMARY CTA BUTTON: ORDERING WEBSITE (MOST PROMINENT)-->
       <!-- Matches "לקופה" vibrant golden-orange gradient on site  -->
       <!-- ======================================================= -->
-      <section aria-label="לאתר ההזמנות" class="mb-6 opacity-0 animate-fade-up [animation-delay:80ms]">
+      <section aria-label="לאתר ההזמנות" class="mb-4 opacity-0 animate-fade-up [animation-delay:80ms]">
         <a
           href="https://liorbenmoshe.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex min-h-[72px] w-full items-center justify-between gap-3 overflow-hidden rounded-[28px] bg-gradient-to-l from-[#FFA726] via-[#F59E0B] to-[#E67E00] px-4 py-4 sm:px-5 text-white shadow-cta transition-all duration-300 hover:-translate-y-0.5 hover:shadow-cta-hover active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-light focus:ring-offset-2 focus:ring-offset-obsidian"
+          class="group relative flex min-h-[72px] w-full items-center justify-between gap-3 overflow-hidden rounded-[28px] bg-gradient-to-l from-[#FFA726] via-[#F59E0B] to-[#E67E00] border-[1.5px] border-gold-light/85 px-4 py-4 sm:px-5 text-white shadow-cta transition-all duration-300 hover:-translate-y-0.5 hover:shadow-cta-hover active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-light focus:ring-offset-2 focus:ring-offset-obsidian"
         >
           <!-- Subtle Hover Shimmer Sweep -->
           <span aria-hidden="true" class="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-r from-transparent via-white/35 to-transparent -translate-x-[260%] group-hover:animate-shimmer"></span>
@@ -219,7 +218,7 @@
                 לאתר ההזמנות
               </div>
               <p class="text-[13px] font-semibold text-white/90 leading-snug mt-0.5 whitespace-normal">
-              מאפים וקינוחים טבעוניים טריים
+                מאפים וקינוחים טבעוניים טריים
               </p>
             </div>
           </div>
@@ -234,37 +233,28 @@
       </section>
 
       <!-- ======================================================= -->
-      <!-- 2. DIRECT CONTACT & SOCIAL LINKS (FULL-WIDTH PILL CARDS)-->
+      <!-- 2. RECIPES & SOCIAL LINKS: 3 BUTTONS IN ONE ROW         -->
+      <!-- Zero truncation & zero line-wrap guaranteed on all widths-->
       <!-- ======================================================= -->
-      <section aria-label="יצירת קשר ורשתות חברתיות" class="space-y-3 mb-8 opacity-0 animate-fade-up [animation-delay:160ms]">
+      <section aria-label="מתכונים ורשתות חברתיות" class="grid grid-cols-3 gap-2 sm:gap-2.5 mb-7 opacity-0 animate-fade-up [animation-delay:160ms]">
 
-        
         <!-- 2.1 My Recipes -->
         <a
           href="https://liorbenmoshe.vercel.app/?view=recipes"
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex min-h-[64px] w-full items-center justify-between gap-3 rounded-[26px] bg-obsidian-card hover:bg-obsidian-elevated border border-white/10 hover:border-gold-amber/55 px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+          class="group flex flex-col items-center justify-center gap-2 rounded-[22px] bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-1.5 py-3 sm:px-2 sm:py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
         >
-          <div class="flex items-center gap-3.5 flex-1">
-            <!-- Recipes Book Circular Badge -->
-            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#D81B60]/20 text-[#FF5C93] border border-[#D81B60]/35 transition-all duration-200 group-hover:bg-[#D81B60] group-hover:text-white group-hover:border-transparent">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-              </svg>
-            </div>
-            <div class="text-right">
-              <div class="text-[15.5px] font-bold text-white leading-snug whitespace-normal">
-                המתכונים שלי
-              </div>
-              
-            </div>
+          <!-- Recipes Book Circular Badge -->
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#D81B60]/20 text-[#FF5C93] border border-[#D81B60]/40 transition-all duration-200 group-hover:bg-[#D81B60] group-hover:text-white group-hover:border-transparent">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
           </div>
-          <!-- RTL Left Arrow -->
-          <svg class="h-4 w-4 shrink-0 text-zinc-500 transition-all duration-200 group-hover:-translate-x-1 group-hover:text-gold-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
+          <span class="text-[clamp(10.5px,3.1vw,14px)] font-bold text-white leading-none whitespace-nowrap text-center">
+            המתכונים שלי
+          </span>
         </a>
 
         <!-- 2.2 Instagram -->
@@ -272,30 +262,19 @@
           href="https://www.instagram.com/liorbenmoshe.veganpatisserie?fqnt=MTg0b2NpNG56dncycQ=="
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex min-h-[64px] w-full items-center justify-between gap-3 rounded-[26px] bg-obsidian-card hover:bg-obsidian-elevated border border-white/10 hover:border-gold-amber/55 px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+          class="group flex flex-col items-center justify-center gap-2 rounded-[22px] bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-1.5 py-3 sm:px-2 sm:py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
         >
-          <div class="flex items-center gap-3.5 flex-1">
-            <!-- Subtle Instagram Gradient Circular Badge -->
-            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#F58529]/25 via-[#DD2A7B]/25 to-[#8134AF]/30 text-pink-300 border border-pink-400/30 transition-all duration-200 group-hover:from-[#F58529] group-hover:via-[#DD2A7B] group-hover:to-[#8134AF] group-hover:text-white group-hover:border-transparent">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </div>
-            <div class="text-right">
-              <div class="text-[15.5px] font-bold text-white leading-snug whitespace-normal">
-                אינסטגרם
-              </div>
-              <div dir="ltr" class="text-xs font-medium text-zinc-400 mt-0.5 text-right break-all whitespace-normal">
-                @liorbenmoshe.veganpatisserie
-              </div>
-            </div>
+          <!-- Subtle Instagram Gradient Circular Badge -->
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-tr from-[#F58529]/25 via-[#DD2A7B]/25 to-[#8134AF]/30 text-pink-300 border border-pink-400/35 transition-all duration-200 group-hover:from-[#F58529] group-hover:via-[#DD2A7B] group-hover:to-[#8134AF] group-hover:text-white group-hover:border-transparent">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
           </div>
-          <!-- RTL Left Arrow -->
-          <svg class="h-4 w-4 shrink-0 text-zinc-500 transition-all duration-200 group-hover:-translate-x-1 group-hover:text-gold-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
+          <span class="text-[clamp(10.5px,3.1vw,14px)] font-bold text-white leading-none whitespace-nowrap text-center">
+            אינסטגרם
+          </span>
         </a>
 
         <!-- 2.3 Facebook -->
@@ -303,28 +282,17 @@
           href="https://www.facebook.com/share/1BnnsF9niK/"
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex min-h-[64px] w-full items-center justify-between gap-3 rounded-[26px] bg-obsidian-card hover:bg-obsidian-elevated border border-white/10 hover:border-gold-amber/55 px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+          class="group flex flex-col items-center justify-center gap-2 rounded-[22px] bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-1.5 py-3 sm:px-2 sm:py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
         >
-          <div class="flex items-center gap-3.5 flex-1">
-            <!-- Clean Facebook Blue Circular Badge -->
-            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#1877F2]/18 text-[#58A6FF] border border-[#1877F2]/35 transition-all duration-200 group-hover:bg-[#1877F2] group-hover:text-white group-hover:border-transparent">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z" />
-              </svg>
-            </div>
-            <div class="text-right">
-              <div class="text-[15.5px] font-bold text-white leading-snug whitespace-normal">
-                פייסבוק
-              </div>
-              <div class="text-xs font-medium text-zinc-400 mt-0.5 whitespace-normal">
-                העמוד הרשמי בפייסבוק
-              </div>
-            </div>
+          <!-- Clean Facebook Blue Circular Badge -->
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1877F2]/20 text-[#58A6FF] border border-[#1877F2]/40 transition-all duration-200 group-hover:bg-[#1877F2] group-hover:text-white group-hover:border-transparent">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z" />
+            </svg>
           </div>
-          <!-- RTL Left Arrow -->
-          <svg class="h-4 w-4 shrink-0 text-zinc-500 transition-all duration-200 group-hover:-translate-x-1 group-hover:text-gold-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
+          <span class="text-[clamp(10.5px,3.1vw,14px)] font-bold text-white leading-none whitespace-nowrap text-center">
+            פייסבוק
+          </span>
         </a>
       </section>
 
@@ -335,11 +303,11 @@
       <section aria-label="קבוצות הוואטסאפ שלנו" class="opacity-0 animate-fade-up [animation-delay:240ms]">
 
         <!-- Signature Section Header (Amber line on right, Emerald Green line on left - matches site) -->
-        <div class="mb-5 text-center">
+        <div class="mb-4 text-center">
           <div class="flex items-center gap-3">
             <!-- Warm Amber Gradient Line -->
             <span class="h-[2px] flex-1 rounded-full bg-gradient-to-l from-gold-amber/80 via-gold-amber/30 to-transparent"></span>
-            <h2 class="flex items-center gap-2 text-lg sm:text-xl font-extrabold text-gold-cream tracking-tight whitespace-normal">
+            <h2 class="flex items-center gap-2 text-lg sm:text-xl font-extrabold text-gold-cream tracking-tight whitespace-nowrap">
               <svg class="h-5 w-5 shrink-0 text-vegan-whatsapp" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12.031 2C6.502 2 2 6.484 2 12.008c0 1.976.578 3.884 1.672 5.524L2.5 22l4.61-1.208a10.02 10.02 0 0 0 4.921 1.288h.004c5.527 0 10.03-4.486 10.03-10.009C22.065 6.485 17.56 2 12.031 2zm5.854 14.15c-.246.693-1.443 1.326-1.994 1.404-.502.072-1.153.103-1.86-.122-.43-.137-.983-.32-1.694-.626-2.98-1.284-4.925-4.303-5.074-4.502-.149-.199-1.21-1.61-1.21-3.072 0-1.462.764-2.181 1.036-2.478.272-.298.594-.372.792-.372.198 0 .396.002.57.01.183.009.428-.07.67.512.248.596.842 2.058.916 2.207.074.149.124.323.025.521-.099.198-.149.323-.297.496-.149.174-.313.388-.446.521-.149.149-.304.31-.13.608.173.298.771 1.273 1.656 2.062 1.138 1.015 2.098 1.33 2.396 1.479.297.149.471.124.645-.075.173-.198.744-.868.942-1.166.198-.297.396-.248.669-.149.272.099 1.734.818 2.031.967.297.149.496.223.57.347.074.124.074.719-.172 1.412z" />
               </svg>
@@ -353,18 +321,16 @@
           </p>
         </div>
 
-        <!-- 3.1 Highlighted General Groups (Full-Width Dark Cards with Warm Gold / Emerald Borders) -->
-        <div class="space-y-3 mb-6">
-
-          <!-- Main Group: ראשי -->
+        <!-- 3.1 Highlighted Main Group: ראשי -->
+        <div class="mb-5">
           <a
             href="https://chat.whatsapp.com/DJwslqdBK7xCFjGBSfyZF8"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex min-h-[66px] w-full items-center justify-between gap-3 rounded-[26px] bg-gradient-to-l from-[#24211A] via-obsidian-card to-obsidian-card hover:from-[#2C271E] hover:via-obsidian-elevated hover:to-obsidian-elevated border border-gold-amber/35 hover:border-gold-amber/75 px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+            class="group flex min-h-[66px] w-full items-center justify-between gap-3 rounded-[26px] bg-gradient-to-l from-[#24211A] via-obsidian-card to-obsidian-card hover:from-[#2C271E] hover:via-obsidian-elevated hover:to-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
             <div class="flex items-center gap-3.5 flex-1">
-              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold-amber/18 text-gold-light border border-gold-amber/35 transition-all duration-200 group-hover:bg-gold-amber group-hover:text-obsidian">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold-amber/18 text-gold-light border border-gold-amber/40 transition-all duration-200 group-hover:bg-gold-amber group-hover:text-obsidian">
                 <!-- Community Icon SVG -->
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -376,7 +342,7 @@
               <div class="text-right">
                 <div class="flex flex-wrap items-center gap-2">
                   <span class="text-[15.5px] font-bold text-white leading-snug whitespace-normal">ראשי</span>
-                  <span class="inline-flex items-center rounded-full bg-gold-amber/20 border border-gold-amber/40 px-2.5 py-0.5 text-[11px] font-bold text-gold-light">
+                  <span class="inline-flex items-center rounded-full bg-gold-amber/20 border border-gold-amber/45 px-2.5 py-0.5 text-[11px] font-bold text-gold-light">
                     מומלץ
                   </span>
                 </div>
@@ -389,39 +355,10 @@
               <polyline points="15 18 9 12 15 6" />
             </svg>
           </a>
-
-          <!-- Vegan Fair Group: היריד הטבעוני -->
-          <a
-            href="https://chat.whatsapp.com/FQPk9GkRx0s6jKJXQzU0hT?s=cl&p=a&iam=2"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group flex min-h-[66px] w-full items-center justify-between gap-3 rounded-[26px] bg-gradient-to-l from-[#182620] via-obsidian-card to-obsidian-card hover:from-[#1D3027] hover:via-obsidian-elevated hover:to-obsidian-elevated border border-vegan/35 hover:border-vegan/75 px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-vegan/60"
-          >
-            <div class="flex items-center gap-3.5 flex-1">
-              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-vegan/18 text-vegan border border-vegan/35 transition-all duration-200 group-hover:bg-vegan group-hover:text-obsidian">
-                <!-- Botanical Vegan Leaf Icon SVG -->
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
-                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-                </svg>
-              </div>
-              <div class="text-right">
-                <div class="text-[15.5px] font-bold text-white leading-snug whitespace-normal">
-                  היריד הטבעוני
-                </div>
-                <p class="text-xs text-zinc-400 mt-0.5 leading-snug whitespace-normal">
-                  עדכונים על ירידים ואירועים
-                </p>
-              </div>
-            </div>
-            <svg class="h-4 w-4 shrink-0 text-vegan transition-transform duration-200 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </a>
         </div>
 
-        <!-- 3.2 Regional Groups Sub-Header -->
-        <div class="flex items-center justify-center gap-2 mb-3.5 mt-6">
+        <!-- 3.2 Regional & Fair Groups Sub-Header -->
+        <div class="flex items-center justify-center gap-2 mb-3.5">
           <svg class="h-4 w-4 shrink-0 text-gold-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
             <circle cx="12" cy="10" r="3" />
@@ -431,189 +368,151 @@
           </h3>
         </div>
 
-        <!-- 3.3 Regional WhatsApp Groups: SINGLE-COLUMN FULL-WIDTH PILL STACK -->
-        <!-- Zero truncation guaranteed on EVERY screen down to 320px -->
-        <div class="flex flex-col gap-2.5">
+        <!-- 3.3 Fair + Regional WhatsApp Groups: 2-COLUMN PILL GRID (8 buttons = 4 balanced rows) -->
+        <!-- No "להצטרפות", zero truncation, zero line-wrap guaranteed down to 320px -->
+        <div class="grid grid-cols-2 gap-2 sm:gap-2.5">
 
-          <!-- 1. תל אביב והסביבה -->
+          <!-- 1. היריד הטבעוני -->
+          <a
+            href="https://chat.whatsapp.com/FQPk9GkRx0s6jKJXQzU0hT?s=cl&p=a&iam=2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-gradient-to-l from-[#182620] via-obsidian-card to-obsidian-card hover:from-[#1D3027] hover:via-obsidian-elevated hover:to-obsidian-elevated border-[1.5px] border-vegan/70 hover:border-vegan px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-vegan/60"
+          >
+            <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-vegan/18 text-vegan border border-vegan/40 transition-colors duration-200 group-hover:bg-vegan group-hover:text-obsidian">
+              <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+              </svg>
+            </span>
+            <span class="text-[clamp(10.5px,3.2vw,14px)] font-bold text-white leading-none whitespace-nowrap">
+              היריד הטבעוני
+            </span>
+          </a>
+
+          <!-- 2. תל אביב והסביבה -->
           <a
             href="https://chat.whatsapp.com/K92ZP8FKGhw9cY9tdj7tby?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+            class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
-            <div class="flex items-center gap-3 flex-1">
-              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </span>
-              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
-                תל אביב והסביבה
-              </span>
-            </div>
-            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
-              <span>להצטרפות</span>
-              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="15 18 9 12 15 6" />
+            <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
+              <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
+            </span>
+            <span class="text-[clamp(10.5px,3.2vw,14px)] font-bold text-white leading-none whitespace-nowrap">
+              תל אביב והסביבה
             </span>
           </a>
 
-          <!-- 2. השרון -->
+          <!-- 3. השרון -->
           <a
             href="https://chat.whatsapp.com/IEEOL9wkfVAAmviMTiATx3?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+            class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
-            <div class="flex items-center gap-3 flex-1">
-              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </span>
-              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
-                השרון
-              </span>
-            </div>
-            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
-              <span>להצטרפות</span>
-              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="15 18 9 12 15 6" />
+            <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
+              <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
+            </span>
+            <span class="text-[clamp(10.5px,3.2vw,14px)] font-bold text-white leading-none whitespace-nowrap">
+              השרון
             </span>
           </a>
 
-          <!-- 3. ירושלים והסביבה -->
+          <!-- 4. ירושלים והסביבה -->
           <a
             href="https://chat.whatsapp.com/GRbGpZmm6AHLBOM3KbzpaI?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+            class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
-            <div class="flex items-center gap-3 flex-1">
-              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </span>
-              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
-                ירושלים והסביבה
-              </span>
-            </div>
-            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
-              <span>להצטרפות</span>
-              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="15 18 9 12 15 6" />
+            <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
+              <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
+            </span>
+            <span class="text-[clamp(10.5px,3.2vw,14px)] font-bold text-white leading-none whitespace-nowrap">
+              ירושלים והסביבה
             </span>
           </a>
 
-          <!-- 4. רחובות והסביבה -->
+          <!-- 5. רחובות והסביבה -->
           <a
             href="https://chat.whatsapp.com/CHtj16j7D8n6pNkxPrsIz5?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+            class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
-            <div class="flex items-center gap-3 flex-1">
-              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </span>
-              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
-                רחובות והסביבה
-              </span>
-            </div>
-            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
-              <span>להצטרפות</span>
-              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="15 18 9 12 15 6" />
+            <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
+              <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
+            </span>
+            <span class="text-[clamp(10.5px,3.2vw,14px)] font-bold text-white leading-none whitespace-nowrap">
+              רחובות והסביבה
             </span>
           </a>
 
-          <!-- 5. נתניה והסביבה -->
+          <!-- 6. נתניה והסביבה -->
           <a
             href="https://chat.whatsapp.com/JWTuzyFU2PoAdJ9blI5iSt?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+            class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
-            <div class="flex items-center gap-3 flex-1">
-              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </span>
-              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
-                נתניה והסביבה
-              </span>
-            </div>
-            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
-              <span>להצטרפות</span>
-              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="15 18 9 12 15 6" />
+            <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
+              <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
+            </span>
+            <span class="text-[clamp(10.5px,3.2vw,14px)] font-bold text-white leading-none whitespace-nowrap">
+              נתניה והסביבה
             </span>
           </a>
 
-          <!-- 6. צפון עד הקריות -->
+          <!-- 7. צפון עד הקריות -->
           <a
             href="https://chat.whatsapp.com/LhoDo1DsP79DzXBymFP2fI?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+            class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
-            <div class="flex items-center gap-3 flex-1">
-              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </span>
-              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
-                צפון עד הקריות
-              </span>
-            </div>
-            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
-              <span>להצטרפות</span>
-              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="15 18 9 12 15 6" />
+            <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
+              <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
+            </span>
+            <span class="text-[clamp(10.5px,3.2vw,14px)] font-bold text-white leading-none whitespace-nowrap">
+              צפון עד הקריות
             </span>
           </a>
 
-          <!-- 7. דרום עד באר שבע -->
+          <!-- 8. דרום עד באר שבע -->
           <a
             href="https://chat.whatsapp.com/FUs0ou6PvOqLAchQbGFERN?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex min-h-[56px] w-full items-center justify-between gap-3 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border border-white/[0.09] hover:border-gold-amber/55 px-4 py-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
+            class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
-            <div class="flex items-center gap-3 flex-1">
-              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-amber/12 text-gold-amber border border-gold-amber/25 transition-colors duration-200 group-hover:bg-gold-amber/20">
-                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </span>
-              <span class="text-[15px] font-bold text-white leading-snug whitespace-normal">
-                דרום עד באר שבע
-              </span>
-            </div>
-            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-vegan-whatsapp/12 border border-vegan-whatsapp/30 px-3 py-1.5 text-xs font-bold text-vegan-whatsapp transition-all duration-200 group-hover:bg-vegan-whatsapp group-hover:text-obsidian">
-              <span>להצטרפות</span>
-              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="15 18 9 12 15 6" />
+            <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
+              <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
+            </span>
+            <span class="text-[clamp(10.5px,3.2vw,14px)] font-bold text-white leading-none whitespace-nowrap">
+              דרום עד באר שבע
             </span>
           </a>
 
@@ -730,4 +629,4 @@
     })();
   </script>
 </body>
-  </html>
+</html>
