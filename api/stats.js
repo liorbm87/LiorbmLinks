@@ -1,4 +1,3 @@
-
 const TTL_SECONDS = 45 * 24 * 60 * 60; // שמירת נתונים ל-45 ימים
 
 function getRedisConfig() {
@@ -151,10 +150,32 @@ module.exports = async function handler(req, res) {
         return res.status(200).json({ ok: true });
       }
 
+      // 4. שמירה או מחיקה של "עדכון השבוע"
+      if (action === 'set_update') {
+        const text = String(body.text || '').trim().slice(0, 220);
+        if (text) {
+          await redisPipeline([['SET', 'site:weekly_update', text]]);
+        } else {
+          await redisPipeline([['DEL', 'site:weekly_update']]);
+        }
+        return res.status(200).json({ ok: true, weeklyUpdate: text });
+      }
+
       return res.status(400).json({ error: 'Unknown action' });
     }
 
     if (req.method === 'GET') {
+      // שליפה מהירה של עדכון השבוע בלבד עבור כל גולש שנכנס לאתר
+      if (
+        (req.query && req.query.only === 'update') ||
+        (req.url && req.url.includes('only=update'))
+      ) {
+        const resUpdate = await redisPipeline([['GET', 'site:weekly_update']]);
+        return res.status(200).json({
+          weeklyUpdate: resUpdate[0]?.result || '',
+        });
+      }
+
       const dates = getIsraelDates(30); // 0 = היום, 0..6 = שבוע, 0..29 = חודש
       const visitKeys = dates.map((d) => `stats:v:${d}`);
 
@@ -162,6 +183,7 @@ module.exports = async function handler(req, res) {
         ['MGET', ...visitKeys],
         ...dates.map((d) => ['HGETALL', `stats:s:${d}`]),
         ...dates.map((d) => ['HGETALL', `stats:c:${d}`]),
+        ['GET', 'site:weekly_update'],
       ];
 
       const results = await redisPipeline(commands);
@@ -189,6 +211,7 @@ module.exports = async function handler(req, res) {
 
       return res.status(200).json({
         todayDate: today,
+        weeklyUpdate: results[61]?.result || '',
         day: aggregate(1),
         week: aggregate(7),
         month: aggregate(30),
