@@ -135,18 +135,18 @@
       <!-- ======================================================= -->
       <header class="flex flex-col items-center text-center mb-5 pt-1 opacity-0 animate-fade-up">
 
-        <!-- Official Brand Logo (Transparent, no background, no border) -->
-        <div class="mb-3 flex items-center justify-center">
+        <!-- Official Brand Logo (Transparent, no background, no border; double-tap opens stats) -->
+        <div id="logoTrigger" class="mb-3 flex items-center justify-center cursor-pointer select-none touch-manipulation">
           <img
             id="officialLogo"
             src="1000251874-removebg-preview.png"
             alt="לוגו ליאור בן משה - קונדיטוריה טבעונית"
-            class="h-[140px] w-auto max-w-[220px] object-contain"
+            class="h-[140px] w-auto max-w-[220px] object-contain pointer-events-none"
             onerror="this.classList.add('hidden'); document.getElementById('logoFallback').classList.remove('hidden');"
           />
 
           <!-- Graceful Bespoke SVG Fallback (Shown only if local image file is unavailable in sandbox) -->
-          <div id="logoFallback" class="hidden flex h-[132px] w-[132px] flex-col items-center justify-center text-center select-none">
+          <div id="logoFallback" class="hidden flex h-[132px] w-[132px] flex-col items-center justify-center text-center select-none pointer-events-none">
             <svg class="h-28 w-28" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lior Ben Moshe Vegan Pastry">
               <!-- Curved top script wordmark -->
               <text x="60" y="25" text-anchor="middle" fill="#D98A3C" stroke="#3D1F14" stroke-width="0.7" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="14">Lior</text>
@@ -191,6 +191,7 @@
           href="https://liorbenmoshe.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
+          data-track="לאתר ההזמנות"
           class="group flex min-h-[70px] w-full items-center justify-between gap-3 rounded-[26px] bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-vegan/75 hover:border-vegan px-4 py-3.5 sm:px-5 text-white shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-vegan/60"
         >
           <!-- Right Content: Icon Badge + Full Readable Text -->
@@ -231,6 +232,7 @@
           href="https://liorbenmoshe.vercel.app/?view=recipes"
           target="_blank"
           rel="noopener noreferrer"
+          data-track="המתכונים שלי"
           class="group flex flex-col items-center justify-center gap-2 rounded-[22px] bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-1.5 py-3 sm:px-2 sm:py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
         >
           <!-- Recipes Book Circular Badge -->
@@ -250,6 +252,7 @@
           href="https://www.instagram.com/liorbenmoshe.veganpatisserie?fqnt=MTg0b2NpNG56dncycQ=="
           target="_blank"
           rel="noopener noreferrer"
+          data-track="אינסטגרם"
           class="group flex flex-col items-center justify-center gap-2 rounded-[22px] bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-1.5 py-3 sm:px-2 sm:py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
         >
           <!-- Subtle Instagram Gradient Circular Badge -->
@@ -270,6 +273,7 @@
           href="https://www.facebook.com/share/1BnnsF9niK/"
           target="_blank"
           rel="noopener noreferrer"
+          data-track="פייסבוק"
           class="group flex flex-col items-center justify-center gap-2 rounded-[22px] bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-1.5 py-3 sm:px-2 sm:py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
         >
           <!-- Clean Facebook Blue Circular Badge -->
@@ -315,6 +319,7 @@
             href="https://chat.whatsapp.com/DJwslqdBK7xCFjGBSfyZF8"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="קבוצה: ראשי"
             class="group flex min-h-[66px] w-full items-center justify-between gap-3 rounded-[26px] bg-gradient-to-l from-[#24211A] via-obsidian-card to-obsidian-card hover:from-[#2C271E] hover:via-obsidian-elevated hover:to-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-4 py-3.5 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
             <div class="flex items-center gap-3.5 flex-1">
@@ -365,6 +370,7 @@
             href="https://chat.whatsapp.com/FQPk9GkRx0s6jKJXQzU0hT?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="היריד הטבעוני"
             class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-gradient-to-l from-[#182620] via-obsidian-card to-obsidian-card hover:from-[#1D3027] hover:via-obsidian-elevated hover:to-obsidian-elevated border-[1.5px] border-vegan/70 hover:border-vegan px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-vegan/60"
           >
             <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-vegan/18 text-vegan border border-vegan/40 transition-colors duration-200 group-hover:bg-vegan group-hover:text-obsidian">
@@ -383,6 +389,7 @@
             href="https://chat.whatsapp.com/K92ZP8FKGhw9cY9tdj7tby?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="תל אביב והסביבה"
             class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
             <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
@@ -401,6 +408,7 @@
             href="https://chat.whatsapp.com/IEEOL9wkfVAAmviMTiATx3?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="השרון"
             class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
             <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
@@ -419,6 +427,7 @@
             href="https://chat.whatsapp.com/GRbGpZmm6AHLBOM3KbzpaI?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="ירושלים והסביבה"
             class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
             <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
@@ -437,6 +446,7 @@
             href="https://chat.whatsapp.com/CHtj16j7D8n6pNkxPrsIz5?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="רחובות והסביבה"
             class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
             <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
@@ -455,6 +465,7 @@
             href="https://chat.whatsapp.com/JWTuzyFU2PoAdJ9blI5iSt?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="נתניה והסביבה"
             class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
             <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
@@ -473,6 +484,7 @@
             href="https://chat.whatsapp.com/LhoDo1DsP79DzXBymFP2fI?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="צפון עד הקריות"
             class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
             <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
@@ -491,6 +503,7 @@
             href="https://chat.whatsapp.com/FUs0ou6PvOqLAchQbGFERN?s=cl&p=a&iam=2"
             target="_blank"
             rel="noopener noreferrer"
+            data-track="דרום עד באר שבע"
             class="group flex min-h-[50px] w-full items-center justify-start gap-1.5 sm:gap-2.5 rounded-full bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/65 hover:border-gold-light px-2 py-2.5 sm:px-3 shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-gold-amber/60"
           >
             <span class="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-gold-amber/15 text-gold-amber border border-gold-amber/35 transition-colors duration-200 group-hover:bg-gold-amber/25">
@@ -520,6 +533,135 @@
   </main>
 
   <!-- ========================================================= -->
+  <!-- SECRET ADMIN STATS MODAL (OPENS ON DOUBLE-TAP LOGO)       -->
+  <!-- ========================================================= -->
+  <div
+    id="statsModal"
+    class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-label="סטטיסטיקות כניסות"
+  >
+    <div class="w-full max-w-[420px] rounded-[28px] bg-obsidian-soft border-[1.5px] border-gold-amber/60 p-5 shadow-[0_24px_64px_rgba(0,0,0,0.85)] relative">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-extrabold text-gold-cream">סטטיסטיקות כניסות</h2>
+        <button
+          id="closeStatsModal"
+          type="button"
+          aria-label="סגור"
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-obsidian-card border border-white/10 text-zinc-300 hover:text-white hover:border-gold-amber/60 transition"
+        >
+          ✕
+        </button>
+      </div>
+
+      <p id="statsCancelNotice" class="hidden mb-3 rounded-xl bg-vegan/15 border border-vegan/35 px-3 py-2 text-xs font-medium text-vegan text-center">
+        הכניסה הנוכחית שלך בוטלה מהספירה
+      </p>
+
+      <div id="statsLoading" class="py-8 text-center text-sm text-zinc-400">
+        טוען נתונים...
+      </div>
+
+      <div id="statsError" class="hidden py-4 text-center text-xs text-red-400 bg-red-500/10 border border-red-500/30 rounded-2xl px-3"></div>
+
+      <div id="statsContent" class="hidden">
+        <div class="grid grid-cols-3 gap-2.5 mb-3">
+          <button
+            type="button"
+            data-period="day"
+            class="period-btn group flex flex-col items-center justify-center rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/60 hover:border-gold-light py-4 px-2 transition active:scale-95"
+          >
+            <span class="text-xs font-semibold text-zinc-400 mb-1">היום</span>
+            <span id="countDay" class="text-2xl font-extrabold text-white">0</span>
+            <span class="text-[10px] text-gold-cream/80 mt-1">לפירוט ←</span>
+          </button>
+
+          <button
+            type="button"
+            data-period="week"
+            class="period-btn group flex flex-col items-center justify-center rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/60 hover:border-gold-light py-4 px-2 transition active:scale-95"
+          >
+            <span class="text-xs font-semibold text-zinc-400 mb-1">השבוע</span>
+            <span id="countWeek" class="text-2xl font-extrabold text-white">0</span>
+            <span class="text-[10px] text-gold-cream/80 mt-1">לפירוט ←</span>
+          </button>
+
+          <button
+            type="button"
+            data-period="month"
+            class="period-btn group flex flex-col items-center justify-center rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/60 hover:border-gold-light py-4 px-2 transition active:scale-95"
+          >
+            <span class="text-xs font-semibold text-zinc-400 mb-1">החודש</span>
+            <span id="countMonth" class="text-2xl font-extrabold text-white">0</span>
+            <span class="text-[10px] text-gold-cream/80 mt-1">לפירוט ←</span>
+          </button>
+        </div>
+
+        <p class="text-[11px] text-zinc-400 text-center mb-4">
+          לחץ על יום / שבוע / חודש לפתיחת פירוט מקורות הגעה ולחיצות כפתורים
+        </p>
+      </div>
+
+      <!-- Admin Device Ignore Toggle -->
+      <div class="pt-3 border-t border-white/10 flex items-center justify-between gap-2">
+        <span class="text-xs text-zinc-300">אל תספור את המכשיר שלי בעתיד</span>
+        <button
+          id="toggleIgnoreDevice"
+          type="button"
+          class="rounded-full px-3 py-1 text-xs font-bold border transition"
+        ></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- SECONDARY DETAIL MODAL: TRAFFIC SOURCES & BUTTON CLICKS   -->
+  <!-- ========================================================= -->
+  <div
+    id="detailModal"
+    class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-label="פירוט מקורות ולחיצות"
+  >
+    <div class="w-full max-w-[420px] max-h-[82vh] flex flex-col rounded-[28px] bg-obsidian-soft border-[1.5px] border-vegan/70 p-5 shadow-[0_24px_64px_rgba(0,0,0,0.9)]">
+      <div class="flex items-center justify-between mb-4 shrink-0">
+        <div>
+          <h3 id="detailTitle" class="text-lg font-extrabold text-white">פירוט</h3>
+          <p id="detailSubtitle" class="text-xs text-gold-cream"></p>
+        </div>
+        <button
+          id="closeDetailModal"
+          type="button"
+          aria-label="חזור"
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-obsidian-card border border-white/10 text-zinc-300 hover:text-white hover:border-vegan transition"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div class="overflow-y-auto space-y-5 pr-0.5">
+        <!-- Sources Breakdown -->
+        <div>
+          <h4 class="text-xs font-bold text-gold-cream uppercase tracking-wide mb-2.5">
+            מאיפה נכנסו
+          </h4>
+          <div id="sourcesList" class="space-y-2"></div>
+        </div>
+
+        <!-- Button Clicks Breakdown -->
+        <div class="pt-3 border-t border-white/10">
+          <h4 class="text-xs font-bold text-vegan uppercase tracking-wide mb-2.5">
+            לחיצות על כפתורים
+          </h4>
+          <div id="clicksList" class="space-y-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
   <!-- SLEEK DARK-AND-GOLD FLOATING TOAST (CLIPBOARD FEEDBACK)   -->
   <!-- ========================================================= -->
   <div
@@ -535,7 +677,7 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- INTERACTIVE SCRIPT: WEB SHARE + SAFE CLIPBOARD FALLBACK   -->
+  <!-- INTERACTIVE SCRIPT: SHARE + ANALYTICS + SECRET STATS      -->
   <!-- ========================================================= -->
   <script>
     (function () {
@@ -544,10 +686,6 @@
       const toastText = document.getElementById('toastText');
       let toastTimeout = null;
 
-      /**
-       * Displays a floating Hebrew toast notification at the bottom of the viewport.
-       * @param {string} message - Hebrew confirmation text
-       */
       function showToast(message) {
         if (!toast || !toastText) return;
         toastText.textContent = message;
@@ -561,11 +699,6 @@
         }, 2600);
       }
 
-      /**
-       * Copies text using execCommand for reliable operation inside iframes & mobile webviews.
-       * @param {string} text - URL to copy
-       * @returns {boolean} True if copied successfully
-       */
       function copyTextSafely(text) {
         try {
           const textArea = document.createElement('textarea');
@@ -585,16 +718,12 @@
         }
       }
 
-      /**
-       * Handles Share button clicks: tries native mobile share first,
-       * otherwise copies the URL and shows the dark-and-gold toast.
-       */
       if (shareBtn) {
         shareBtn.addEventListener('click', async () => {
           const shareUrl = window.location.href;
           const shareData = {
             title: 'ליאור בן משה • קונדיטוריה טבעונית',
- url: shareUrl,
+            url: shareUrl,
           };
 
           if (navigator.share) {
@@ -602,7 +731,6 @@
               await navigator.share(shareData);
               return;
             } catch (error) {
-              // Ignore user-cancelled share sheets gracefully
               if (error && error.name === 'AbortError') {
                 return;
               }
@@ -613,6 +741,281 @@
           showToast(copied ? 'הקישור הועתק!' : 'ניתן להעתיק את כתובת העמוד מהדפדפן');
         });
       }
+
+      // =======================================================
+      // ANALYTICS: VERCEL + CLARITY + UPSTASH REDIS
+      // =======================================================
+      const IGNORE_KEY = 'lior_ignore_stats';
+      const isIgnoredDevice = localStorage.getItem(IGNORE_KEY) === 'true';
+
+      const SOURCE_LABELS = {
+        instagram: 'אינסטגרם',
+        facebook: 'פייסבוק',
+        google: 'גוגל',
+        whatsapp: 'וואטסאפ',
+        tiktok: 'טיקטוק',
+        youtube: 'יוטיוב',
+        telegram: 'טלגרם',
+        direct: 'ישיר / וואטסאפ',
+        other: 'אתר אחר',
+      };
+
+      function detectTrafficSource() {
+        const params = new URLSearchParams(window.location.search);
+        const utm = (params.get('utm_source') || '').toLowerCase();
+        const ref = (document.referrer || '').toLowerCase();
+        const ua = (navigator.userAgent || '').toLowerCase();
+
+        if (params.has('igshid') || utm.includes('insta') || utm === 'ig' || ref.includes('instagram.com') || ua.includes('instagram')) {
+          return 'instagram';
+        }
+        if (params.has('fbclid') || utm.includes('fb') || utm.includes('facebook') || ref.includes('facebook.com') || ref.includes('fb.com') || ua.includes('fban') || ua.includes('fbav')) {
+          return 'facebook';
+        }
+        if (utm.includes('whatsapp') || utm === 'wa' || ref.includes('whatsapp.com') || ref.includes('wa.me')) {
+          return 'whatsapp';
+        }
+        if (params.has('gclid') || utm.includes('google') || ref.includes('google.')) {
+          return 'google';
+        }
+        if (params.has('ttclid') || utm.includes('tiktok') || ref.includes('tiktok.com') || ua.includes('tiktok')) {
+          return 'tiktok';
+        }
+        if (utm.includes('youtube') || ref.includes('youtube.com') || ref.includes('youtu.be')) {
+          return 'youtube';
+        }
+        if (utm.includes('telegram') || ref.includes('t.me') || ref.includes('telegram')) {
+          return 'telegram';
+        }
+        if (ref && !ref.includes(window.location.hostname.toLowerCase())) {
+          return 'other';
+        }
+        return 'direct';
+      }
+
+      const currentSource = detectTrafficSource();
+      let visitPromise = null;
+      let visitDate = null;
+      let visitCounted = false;
+      let visitCancelled = false;
+
+      if (!isIgnoredDevice) {
+        // 1. Vercel Web Analytics
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        const vaScript = document.createElement('script');
+        vaScript.defer = true;
+        vaScript.src = '/_vercel/insights/script.js';
+        document.head.appendChild(vaScript);
+
+        // 2. Microsoft Clarity (zgnwg2vwup)
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+          t = l.createElement(r);
+          t.async = 1;
+          t.src = 'https://www.clarity.ms/tag/' + i;
+          y = l.getElementsByTagName(r)[0];
+          y.parentNode.insertBefore(t, y);
+        })(window, document, 'clarity', 'script', 'zgnwg2vwup');
+
+        // 3. Upstash Redis visit tracking
+        visitPromise = fetch('/api/stats', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'visit', source: currentSource }),
+        })
+          .then((res) => (res.ok ? res.json() : null))
+          .then((data) => {
+            if (data && data.ok) {
+              visitDate = data.date;
+              visitCounted = true;
+            }
+          })
+          .catch(() => {});
+      }
+
+      // 4. Button Click Tracking
+      document.querySelectorAll('a[data-track]').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (localStorage.getItem(IGNORE_KEY) === 'true' || visitCancelled) return;
+          const payload = JSON.stringify({
+            action: 'click',
+            button: link.getAttribute('data-track'),
+          });
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon('/api/stats', new Blob([payload], { type: 'application/json' }));
+          } else {
+            fetch('/api/stats', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: payload,
+              keepalive: true,
+            }).catch(() => {});
+          }
+        });
+      });
+
+      // =======================================================
+      // SECRET STATS MODALS (DOUBLE-TAP / DOUBLE-CLICK ON LOGO)
+      // =======================================================
+      const logoTrigger = document.getElementById('logoTrigger');
+      const statsModal = document.getElementById('statsModal');
+      const closeStatsModal = document.getElementById('closeStatsModal');
+      const statsCancelNotice = document.getElementById('statsCancelNotice');
+      const statsLoading = document.getElementById('statsLoading');
+      const statsError = document.getElementById('statsError');
+      const statsContent = document.getElementById('statsContent');
+      const toggleIgnoreDevice = document.getElementById('toggleIgnoreDevice');
+
+      const detailModal = document.getElementById('detailModal');
+      const closeDetailModal = document.getElementById('closeDetailModal');
+      const detailTitle = document.getElementById('detailTitle');
+      const detailSubtitle = document.getElementById('detailSubtitle');
+      const sourcesList = document.getElementById('sourcesList');
+      const clicksList = document.getElementById('clicksList');
+
+      let cachedStats = null;
+      let lastTapTime = 0;
+
+      function updateIgnoreButtonUI() {
+        const ignored = localStorage.getItem(IGNORE_KEY) === 'true';
+        if (ignored) {
+          toggleIgnoreDevice.textContent = 'פעיל (לא נספר)';
+          toggleIgnoreDevice.className = 'rounded-full px-3 py-1 text-xs font-bold border bg-vegan/20 text-vegan border-vegan/50 transition';
+        } else {
+          toggleIgnoreDevice.textContent = 'כבוי';
+          toggleIgnoreDevice.className = 'rounded-full px-3 py-1 text-xs font-bold border bg-obsidian-card text-zinc-400 border-white/15 transition';
+        }
+      }
+
+      updateIgnoreButtonUI();
+
+      toggleIgnoreDevice.addEventListener('click', () => {
+        const next = localStorage.getItem(IGNORE_KEY) !== 'true';
+        localStorage.setItem(IGNORE_KEY, String(next));
+        updateIgnoreButtonUI();
+        showToast(next ? 'המכשיר שלך לא ייספר בכניסות הבאות' : 'המכשיר שלך ייספר כרגיל');
+      });
+
+      async function openStatsModal() {
+        statsModal.classList.remove('hidden');
+        statsLoading.classList.remove('hidden');
+        statsContent.classList.add('hidden');
+        statsError.classList.add('hidden');
+
+        // ביטול הכניסה הנוכחית אם נספרה בדף זה
+        if (visitPromise) {
+          await visitPromise;
+        }
+        if (visitCounted && !visitCancelled) {
+          try {
+            await fetch('/api/stats', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                action: 'cancel',
+                source: currentSource,
+                date: visitDate,
+              }),
+            });
+            visitCancelled = true;
+            statsCancelNotice.classList.remove('hidden');
+          } catch {}
+        }
+
+        // שליפת הנתונים העדכניים מ-Upstash
+        try {
+          const res = await fetch('/api/stats');
+          const data = await res.json();
+          if (!res.ok) {
+            throw new Error(data.error || 'שגיאה בטעינת הנתונים');
+          }
+          cachedStats = data;
+          document.getElementById('countDay').textContent = data.day.visits;
+          document.getElementById('countWeek').textContent = data.week.visits;
+          document.getElementById('countMonth').textContent = data.month.visits;
+          statsLoading.classList.add('hidden');
+          statsContent.classList.remove('hidden');
+        } catch (err) {
+          statsLoading.classList.add('hidden');
+          statsError.textContent = err.message || 'לא ניתן לטעון סטטיסטיקות כרגע';
+          statsError.classList.remove('hidden');
+        }
+      }
+
+      function renderBreakdownRows(container, dataObj, labelMap, barColorClass, emptyText) {
+        container.innerHTML = '';
+        const entries = Object.entries(dataObj || {})
+          .filter(([, count]) => count > 0)
+          .sort((a, b) => b[1] - a[1]);
+
+        if (entries.length === 0) {
+          container.innerHTML = `<p class="text-xs text-zinc-500 text-center py-2">${emptyText}</p>`;
+          return;
+        }
+
+        const total = entries.reduce((sum, [, count]) => sum + count, 0);
+
+        entries.forEach(([key, count]) => {
+          const label = (labelMap && labelMap[key]) || key;
+          const pct = Math.round((count / total) * 100);
+          const row = document.createElement('div');
+          row.className = 'rounded-2xl bg-obsidian-card border border-white/10 px-3.5 py-2.5';
+          row.innerHTML = `
+            <div class="flex items-center justify-between text-xs font-bold mb-1.5">
+              <span class="text-white">${label}</span>
+              <span class="text-gold-cream">${count} <span class="text-zinc-500 font-normal">(${pct}%)</span></span>
+            </div>
+            <div class="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
+              <div class="h-full rounded-full ${barColorClass}" style="width: ${pct}%"></div>
+            </div>
+          `;
+          container.appendChild(row);
+        });
+      }
+
+      function openDetailModal(periodKey) {
+        if (!cachedStats || !cachedStats[periodKey]) return;
+        const titles = {
+          day: 'פירוט כניסות • היום',
+          week: 'פירוט כניסות • 7 ימים אחרונים',
+          month: 'פירוט כניסות • 30 ימים אחרונים',
+        };
+        const periodData = cachedStats[periodKey];
+        detailTitle.textContent = titles[periodKey];
+        detailSubtitle.textContent = `סה"כ ${periodData.visits} כניסות בתקופה זו`;
+
+        renderBreakdownRows(sourcesList, periodData.sources, SOURCE_LABELS, 'bg-gold-amber', 'אין עדיין כניסות בתקופה זו');
+        renderBreakdownRows(clicksList, periodData.clicks, null, 'bg-vegan', 'אין עדיין לחיצות כפתורים בתקופה זו');
+
+        detailModal.classList.remove('hidden');
+      }
+
+      // זיהוי לחיצה כפולה על הלוגו (מותאם גם לטלפון וגם למחשב)
+      if (logoTrigger) {
+        logoTrigger.addEventListener('click', () => {
+          const now = Date.now();
+          if (now - lastTapTime < 400) {
+            lastTapTime = 0;
+            openStatsModal();
+          } else {
+            lastTapTime = now;
+          }
+        });
+      }
+
+      document.querySelectorAll('.period-btn').forEach((btn) => {
+        btn.addEventListener('click', () => openDetailModal(btn.getAttribute('data-period')));
+      });
+
+      closeStatsModal.addEventListener('click', () => statsModal.classList.add('hidden'));
+      closeDetailModal.addEventListener('click', () => detailModal.classList.add('hidden'));
+
+      statsModal.addEventListener('click', (e) => {
+        if (e.target === statsModal) statsModal.classList.add('hidden');
+      });
+      detailModal.addEventListener('click', (e) => {
+        if (e.target === detailModal) detailModal.classList.add('hidden');
+      });
     })();
   </script>
 </body>
