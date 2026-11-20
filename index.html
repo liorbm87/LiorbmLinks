@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ליאור בן משה • קונדיטוריה טבעונית</title>
-  <meta name="description" content="ליאור בן משה - קונדיטוריה טבעונית בעבודת יד. אתר ההזמנות, וואטסאפ, רשתות חברתיות וקבוצות וואטסאפ לפי אזורים." />
+  <title>ליאור בן משה • קונדיטוריה טבעונית | מאפים, קינוחים ומתכונים טבעוניים</title>
+  <meta name="description" content="ליאור בן משה - קונדיטוריה טבעונית בעבודת יד. הזמנת מאפים, קרואסונים וקינוחים טבעוניים אונליין, מתכונים טבעוניים, היריד הטבעוני וקבוצות וואטסאפ לחלוקות ברחבי הארץ." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://liorbmlinks.vercel.app/" />
+  <!-- כאן תדביק את תגית האימות של Google Search Console כשתאמת את האתר -->
   <meta name="theme-color" content="#121214" />
 
   <!-- לוגו בלשונית הדפדפן ובמסך הבית -->
@@ -15,7 +18,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://liorbmlinks.vercel.app/" />
   <meta property="og:title" content="ליאור בן משה • קונדיטוריה טבעונית" />
-  <meta property="og:description" content="אתר ההזמנות, וואטסאפ, רשתות חברתיות וקבוצות וואטסאפ לפי אזורים." />
+  <meta property="og:description" content="אתר ההזמנות, מתכונים טבעוניים, רשתות חברתיות וקבוצות וואטסאפ לפי אזורים." />
   <meta property="og:image" content="https://liorbmlinks.vercel.app/1794287080889~2.jpg" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="https://liorbmlinks.vercel.app/1794287080889~2.jpg" />
@@ -84,6 +87,25 @@
         },
       },
     };
+  </script>
+
+  <!-- נתונים מובנים לגוגל (Structured Data / JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "ליאור בן משה - קונדיטוריה טבעונית",
+      "url": "https://liorbmlinks.vercel.app/",
+      "image": "https://liorbmlinks.vercel.app/1794287080889~2.jpg",
+      "description": "קונדיטוריה טבעונית בעבודת יד של ליאור בן משה. הזמנת מאפים, קרואסונים וקינוחים טבעוניים, מתכונים טבעוניים וקבוצות וואטסאפ לפי אזורים.",
+      "servesCuisine": "Vegan Patisserie",
+      "areaServed": "Israel",
+      "sameAs": [
+        "https://liorbenmoshe.vercel.app/",
+        "https://www.instagram.com/liorbenmoshe.veganpatisserie",
+        "https://www.facebook.com/share/1BnnsF9niK/"
+      ]
+    }
   </script>
 </head>
 
@@ -183,19 +205,37 @@
       </header>
 
       <!-- ======================================================= -->
-      <!-- 1. PRIMARY CTA BUTTON: ORDERING WEBSITE                 -->
-      <!-- Matches other dark buttons with a clean green border    -->
+      <!-- WEEKLY UPDATE BANNER (EDITABLE VIA DOUBLE-TAP ON LOGO)  -->
+      <!-- Shown automatically only when an update text is saved   -->
+      <!-- ======================================================= -->
+      <section id="weeklyUpdateBanner" aria-label="עדכון השבוע" class="hidden mb-4 opacity-0 animate-fade-up [animation-delay:50ms]">
+        <div class="flex items-start gap-2.5 rounded-2xl bg-gradient-to-l from-gold-amber/15 via-obsidian-card to-obsidian-card border border-gold-amber/50 px-3.5 py-2.5 shadow-card">
+          <span class="relative mt-1 flex h-2.5 w-2.5 shrink-0">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold-amber opacity-75"></span>
+            <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-gold-amber"></span>
+          </span>
+          <div class="text-right leading-snug flex-1">
+            <span class="text-[11px] font-extrabold text-gold-light tracking-wide block mb-0.5">עדכון השבוע</span>
+            <p id="weeklyUpdateText" class="text-[13px] font-medium text-zinc-100 whitespace-pre-line"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================= -->
+      <!-- 1. PRIMARY CTA BUTTON + INTEGRATED SWIPEABLE GALLERY    -->
+      <!-- Square pastry gallery embedded cleanly on the left side -->
       <!-- ======================================================= -->
       <section aria-label="לאתר ההזמנות" class="mb-4 opacity-0 animate-fade-up [animation-delay:80ms]">
-        <a
-          href="https://liorbenmoshe.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-track="לאתר ההזמנות"
-          class="group flex min-h-[70px] w-full items-center justify-between gap-3 rounded-[26px] bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-vegan/75 hover:border-vegan px-4 py-3.5 sm:px-5 text-white shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.985] focus:outline-none focus:ring-2 focus:ring-vegan/60"
-        >
-          <!-- Right Content: Icon Badge + Full Readable Text -->
-          <div class="flex items-center gap-3.5 flex-1">
+        <div class="group flex items-stretch justify-between gap-2 rounded-[26px] bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-vegan/75 hover:border-vegan p-1.5 text-white shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5">
+
+          <!-- Right Clickable Area: Icon + Ordering Website Title & Subtitle -->
+          <a
+            href="https://liorbenmoshe.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="לאתר ההזמנות"
+            class="flex flex-1 items-center gap-3 pr-2.5 pl-1 py-2.5 sm:pr-3.5 rounded-[20px] active:scale-[0.985] transition-transform focus:outline-none focus:ring-2 focus:ring-vegan/60"
+          >
             <!-- Shopping Cart / Bag Icon Badge -->
             <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-vegan/18 text-vegan border border-vegan/40 transition-all duration-200 group-hover:bg-vegan group-hover:text-obsidian">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -205,20 +245,42 @@
               </svg>
             </div>
             <div class="text-right">
-              <div class="text-[17px] sm:text-[18px] font-extrabold leading-snug text-white whitespace-normal">
-                לאתר ההזמנות
+              <div class="flex items-center gap-1.5">
+                <span class="text-[16.5px] sm:text-[18px] font-extrabold leading-snug text-white whitespace-normal">
+                  לאתר ההזמנות
+                </span>
+                <svg class="h-4 w-4 shrink-0 text-vegan transition-transform duration-200 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
               </div>
-              <p class="text-xs sm:text-[13px] font-medium text-zinc-400 leading-snug mt-0.5 whitespace-normal">
+              <p class="text-[11.5px] sm:text-[12.5px] font-medium text-zinc-400 leading-snug mt-0.5 whitespace-normal">
                 מאפים וקינוחים טבעוניים טריים
               </p>
             </div>
+          </a>
+
+          <!-- Left Embedded Square Mini-Gallery (Swipe Left / Right + Dots) -->
+          <div
+            id="ctaGallery"
+            aria-label="גלריית מאפים - החליקו להחלפת תמונה"
+            class="relative h-[74px] w-[74px] sm:h-[80px] sm:w-[80px] shrink-0 self-center overflow-hidden rounded-[20px] border border-vegan/35 bg-obsidian-elevated cursor-grab active:cursor-grabbing select-none"
+          >
+            <!-- LTR Sliding Track for Predictable Smooth Animation -->
+            <div
+              id="ctaGalleryTrack"
+              dir="ltr"
+              class="flex h-full w-full transition-transform duration-300 ease-out will-change-transform"
+            ></div>
+
+            <!-- Subtle Bottom Scrim + Pagination Dots -->
+            <div
+              id="ctaGalleryDots"
+              dir="ltr"
+              class="absolute inset-x-0 bottom-0 z-10 flex items-center justify-center gap-1 bg-gradient-to-t from-black/80 via-black/35 to-transparent pt-3 pb-1.5 px-1"
+            ></div>
           </div>
 
-          <!-- Left-Pointing RTL Chevron -->
-          <svg class="h-4 w-4 shrink-0 text-vegan transition-transform duration-200 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </a>
+        </div>
       </section>
 
       <!-- ======================================================= -->
@@ -533,18 +595,18 @@
   </main>
 
   <!-- ========================================================= -->
-  <!-- SECRET ADMIN STATS MODAL (OPENS ON DOUBLE-TAP LOGO)       -->
+  <!-- SECRET ADMIN STATS & WEEKLY UPDATE MODAL (DOUBLE-TAP LOGO)-->
   <!-- ========================================================= -->
   <div
     id="statsModal"
     class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4"
     role="dialog"
     aria-modal="true"
-    aria-label="סטטיסטיקות כניסות"
+    aria-label="ניהול וסטטיסטיקות כניסות"
   >
-    <div class="w-full max-w-[420px] rounded-[28px] bg-obsidian-soft border-[1.5px] border-gold-amber/60 p-5 shadow-[0_24px_64px_rgba(0,0,0,0.85)] relative">
+    <div class="w-full max-w-[420px] max-h-[88vh] overflow-y-auto rounded-[28px] bg-obsidian-soft border-[1.5px] border-gold-amber/60 p-5 shadow-[0_24px_64px_rgba(0,0,0,0.85)] relative">
       <div class="flex items-center justify-between mb-4">
-        <h2 class="text-lg font-extrabold text-gold-cream">סטטיסטיקות כניסות</h2>
+        <h2 class="text-lg font-extrabold text-gold-cream">סטטיסטיקות וניהול</h2>
         <button
           id="closeStatsModal"
           type="button"
@@ -563,7 +625,7 @@
         טוען נתונים...
       </div>
 
-      <div id="statsError" class="hidden py-4 text-center text-xs text-red-400 bg-red-500/10 border border-red-500/30 rounded-2xl px-3"></div>
+      <div id="statsError" class="hidden py-4 text-center text-xs text-red-400 bg-red-500/10 border border-red-500/30 rounded-2xl px-3 mb-4"></div>
 
       <div id="statsContent" class="hidden">
         <div class="grid grid-cols-3 gap-2.5 mb-3">
@@ -601,6 +663,36 @@
         <p class="text-[11px] text-zinc-400 text-center mb-4">
           לחץ על יום / שבוע / חודש לפתיחת פירוט מקורות הגעה ולחיצות כפתורים
         </p>
+      </div>
+
+      <!-- Weekly Update Editor Section -->
+      <div class="pt-3.5 pb-4 border-t border-white/10">
+        <label for="weeklyUpdateInput" class="block text-xs font-bold text-gold-cream mb-1.5">
+          עדכון השבוע (מוצג בראש האתר)
+        </label>
+        <textarea
+          id="weeklyUpdateInput"
+          rows="2"
+          maxlength="220"
+          placeholder="לדוגמה: השבוע ביריד הטבעוני בדיזנגוף סנטר • רביעי 12:00–20:00"
+          class="w-full rounded-2xl bg-obsidian-card border border-white/15 focus:border-gold-amber/75 px-3 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none resize-none"
+        ></textarea>
+        <div class="mt-2 flex items-center gap-2">
+          <button
+            id="saveWeeklyUpdateBtn"
+            type="button"
+            class="flex-1 rounded-full bg-vegan/20 hover:bg-vegan/30 border border-vegan/60 py-1.5 text-xs font-bold text-vegan transition active:scale-95"
+          >
+            שמור עדכון
+          </button>
+          <button
+            id="clearWeeklyUpdateBtn"
+            type="button"
+            class="rounded-full bg-obsidian-card hover:bg-red-500/15 border border-white/15 hover:border-red-400/50 px-3.5 py-1.5 text-xs font-bold text-zinc-300 hover:text-red-300 transition active:scale-95"
+          >
+            הסתר / מחק
+          </button>
+        </div>
       </div>
 
       <!-- Admin Device Ignore Toggle -->
@@ -668,7 +760,7 @@
     id="toast"
     role="status"
     aria-live="polite"
-    class="pointer-events-none fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 z-50 flex items-center gap-2 rounded-full bg-obsidian-elevated border border-gold-amber/50 px-5 py-2.5 text-sm font-bold text-gold-light shadow-[0_12px_32px_rgba(0,0,0,0.65)] transition-all duration-300"
+    class="pointer-events-none fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 z-[70] flex items-center gap-2 rounded-full bg-obsidian-elevated border border-gold-amber/50 px-5 py-2.5 text-sm font-bold text-gold-light shadow-[0_12px_32px_rgba(0,0,0,0.65)] transition-all duration-300"
   >
     <svg class="h-4 w-4 text-gold-amber shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <polyline points="20 6 9 17 4 12" />
@@ -677,7 +769,7 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- INTERACTIVE SCRIPT: SHARE + ANALYTICS + SECRET STATS      -->
+  <!-- INTERACTIVE SCRIPT: GALLERY + SHARE + ANALYTICS + ADMIN   -->
   <!-- ========================================================= -->
   <script>
     (function () {
@@ -799,6 +891,24 @@
       let visitCounted = false;
       let visitCancelled = false;
 
+      function trackButtonClick(buttonName) {
+        if (localStorage.getItem(IGNORE_KEY) === 'true' || visitCancelled || !buttonName) return;
+        const payload = JSON.stringify({
+          action: 'click',
+          button: buttonName,
+        });
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('/api/stats', new Blob([payload], { type: 'application/json' }));
+        } else {
+          fetch('/api/stats', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: payload,
+            keepalive: true,
+          }).catch(() => {});
+        }
+      }
+
       if (!isIgnoredDevice) {
         // 1. Vercel Web Analytics
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -836,23 +946,248 @@
       // 4. Button Click Tracking
       document.querySelectorAll('a[data-track]').forEach((link) => {
         link.addEventListener('click', () => {
-          if (localStorage.getItem(IGNORE_KEY) === 'true' || visitCancelled) return;
-          const payload = JSON.stringify({
-            action: 'click',
-            button: link.getAttribute('data-track'),
-          });
-          if (navigator.sendBeacon) {
-            navigator.sendBeacon('/api/stats', new Blob([payload], { type: 'application/json' }));
-          } else {
-            fetch('/api/stats', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: payload,
-              keepalive: true,
-            }).catch(() => {});
-          }
+          trackButtonClick(link.getAttribute('data-track'));
         });
       });
+
+      // =======================================================
+      // EMBEDDED SWIPEABLE MINI-GALLERY INSIDE CTA BUTTON
+      // =======================================================
+      const GALLERY_IMAGES = [
+        'https://rxjnfvmejinbmuyidbvr.supabase.co/storage/v1/object/public/images/uploads/fv0y5msx77p_1794582842014.jxl',
+        'https://rxjnfvmejinbmuyidbvr.supabase.co/storage/v1/object/public/images/uploads/6xmbm0sn6za_1794584371816.webp',
+        'https://rxjnfvmejinbmuyidbvr.supabase.co/storage/v1/object/public/images/uploads/c7ggj8821xm_1794584451502.webp',
+        'https://rxjnfvmejinbmuyidbvr.supabase.co/storage/v1/object/public/images/uploads/fn8zt367sb_1794584532302.webp',
+      ];
+
+      const galleryEl = document.getElementById('ctaGallery');
+      const galleryTrack = document.getElementById('ctaGalleryTrack');
+      const galleryDots = document.getElementById('ctaGalleryDots');
+
+      if (galleryEl && galleryTrack && galleryDots) {
+        let currentSlide = 0;
+        let autoSlideTimer = null;
+        let startX = 0;
+        let startY = 0;
+        let lastDx = 0;
+        let isDragging = false;
+        let didSwipe = false;
+
+        function getSlideCount() {
+          return galleryTrack.children.length;
+        }
+
+        function renderDots() {
+          const count = getSlideCount();
+          galleryDots.innerHTML = '';
+          if (count <= 1) return;
+
+          for (let i = 0; i < count; i++) {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.setAttribute('aria-label', `תמונה ${i + 1}`);
+            dot.className =
+              i === currentSlide
+                ? 'h-1.5 w-3.5 rounded-full bg-gold-light transition-all duration-300'
+                : 'h-1.5 w-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300';
+            dot.addEventListener('click', (e) => {
+              e.stopPropagation();
+              goToSlide(i);
+              restartAutoSlide();
+            });
+            galleryDots.appendChild(dot);
+          }
+        }
+
+        function goToSlide(index, animate = true) {
+          const count = getSlideCount();
+          if (count === 0) return;
+          currentSlide = ((index % count) + count) % count;
+          galleryTrack.style.transition = animate ? 'transform 320ms cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
+          galleryTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+          renderDots();
+        }
+
+        function restartAutoSlide() {
+          if (autoSlideTimer) clearInterval(autoSlideTimer);
+          if (getSlideCount() <= 1) return;
+          autoSlideTimer = setInterval(() => {
+            if (!isDragging) {
+              goToSlide(currentSlide + 1);
+            }
+          }, 3500);
+        }
+
+        // Build slides (auto-skips unsupported formats like .jxl on browsers without support)
+        GALLERY_IMAGES.forEach((url, idx) => {
+          const slide = document.createElement('div');
+          slide.className = 'h-full w-full shrink-0 overflow-hidden';
+
+          const img = document.createElement('img');
+          img.src = url;
+          img.alt = `מאפה טבעוני ${idx + 1} - ליאור בן משה`;
+          img.loading = idx === 0 ? 'eager' : 'lazy';
+          img.draggable = false;
+          img.className = 'h-full w-full object-cover pointer-events-none select-none';
+          img.onerror = () => {
+            slide.remove();
+            if (currentSlide >= getSlideCount()) currentSlide = 0;
+            goToSlide(currentSlide, false);
+            restartAutoSlide();
+          };
+
+          slide.appendChild(img);
+          galleryTrack.appendChild(slide);
+        });
+
+        goToSlide(0, false);
+        restartAutoSlide();
+
+        // Touch swipe support (Mobile)
+        galleryEl.addEventListener('touchstart', (e) => {
+          if (e.touches.length !== 1) return;
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+          lastDx = 0;
+          isDragging = true;
+          didSwipe = false;
+          if (autoSlideTimer) clearInterval(autoSlideTimer);
+        }, { passive: true });
+
+        galleryEl.addEventListener('touchmove', (e) => {
+          if (!isDragging || e.touches.length !== 1) return;
+          const dx = e.touches[0].clientX - startX;
+          const dy = e.touches[0].clientY - startY;
+          if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) {
+            e.preventDefault();
+            lastDx = dx;
+            const width = galleryEl.offsetWidth || 80;
+            const offsetPct = (dx / width) * 100;
+            galleryTrack.style.transition = 'none';
+            galleryTrack.style.transform = `translateX(${-currentSlide * 100 + offsetPct}%)`;
+          }
+        }, { passive: false });
+
+        galleryEl.addEventListener('touchend', () => {
+          if (!isDragging) return;
+          isDragging = false;
+          if (Math.abs(lastDx) > 20) {
+            didSwipe = true;
+            goToSlide(lastDx < 0 ? currentSlide + 1 : currentSlide - 1);
+          } else {
+            goToSlide(currentSlide);
+          }
+          restartAutoSlide();
+        });
+
+        // Mouse drag support (Desktop)
+        galleryEl.addEventListener('mousedown', (e) => {
+          if (e.target.tagName === 'BUTTON') return;
+          startX = e.clientX;
+          lastDx = 0;
+          isDragging = true;
+          didSwipe = false;
+          if (autoSlideTimer) clearInterval(autoSlideTimer);
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          const dx = e.clientX - startX;
+          if (Math.abs(dx) > 6) {
+            lastDx = dx;
+            const width = galleryEl.offsetWidth || 80;
+            const offsetPct = (dx / width) * 100;
+            galleryTrack.style.transition = 'none';
+            galleryTrack.style.transform = `translateX(${-currentSlide * 100 + offsetPct}%)`;
+          }
+        });
+
+        window.addEventListener('mouseup', () => {
+          if (!isDragging) return;
+          isDragging = false;
+          if (Math.abs(lastDx) > 20) {
+            didSwipe = true;
+            goToSlide(lastDx < 0 ? currentSlide + 1 : currentSlide - 1);
+          } else {
+            goToSlide(currentSlide);
+          }
+          restartAutoSlide();
+        });
+
+        // Tapping gallery without swiping opens ordering website
+        galleryEl.addEventListener('click', (e) => {
+          if (didSwipe || e.target.tagName === 'BUTTON') {
+            didSwipe = false;
+            return;
+          }
+          trackButtonClick('לאתר ההזמנות');
+          window.open('https://liorbenmoshe.vercel.app/', '_blank', 'noopener,noreferrer');
+        });
+      }
+
+      // =======================================================
+      // WEEKLY UPDATE BANNER (LOAD ON PAGE OPEN + ADMIN SAVE)
+      // =======================================================
+      const weeklyUpdateBanner = document.getElementById('weeklyUpdateBanner');
+      const weeklyUpdateText = document.getElementById('weeklyUpdateText');
+      const weeklyUpdateInput = document.getElementById('weeklyUpdateInput');
+      const saveWeeklyUpdateBtn = document.getElementById('saveWeeklyUpdateBtn');
+      const clearWeeklyUpdateBtn = document.getElementById('clearWeeklyUpdateBtn');
+
+      function applyWeeklyUpdateUI(text) {
+        const clean = (text || '').trim();
+        if (weeklyUpdateInput) weeklyUpdateInput.value = clean;
+        if (clean) {
+          weeklyUpdateText.textContent = clean;
+          weeklyUpdateBanner.classList.remove('hidden');
+        } else {
+          weeklyUpdateText.textContent = '';
+          weeklyUpdateBanner.classList.add('hidden');
+        }
+      }
+
+      // Load current weekly update for all visitors
+      fetch('/api/stats?only=update')
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+          if (data && typeof data.weeklyUpdate === 'string') {
+            applyWeeklyUpdateUI(data.weeklyUpdate);
+          }
+        })
+        .catch(() => {});
+
+      async function saveWeeklyUpdate(text) {
+        saveWeeklyUpdateBtn.disabled = true;
+        clearWeeklyUpdateBtn.disabled = true;
+        try {
+          const res = await fetch('/api/stats', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'set_update', text }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || 'שגיאה בשמירה');
+          applyWeeklyUpdateUI(data.weeklyUpdate);
+          showToast(data.weeklyUpdate ? 'עדכון השבוע נשמר ומוצג באתר!' : 'עדכון השבוע הוסתר');
+        } catch (err) {
+          showToast(err.message || 'שגיאה בשמירת העדכון');
+        } finally {
+          saveWeeklyUpdateBtn.disabled = false;
+          clearWeeklyUpdateBtn.disabled = false;
+        }
+      }
+
+      if (saveWeeklyUpdateBtn) {
+        saveWeeklyUpdateBtn.addEventListener('click', () => {
+          saveWeeklyUpdate(weeklyUpdateInput.value);
+        });
+      }
+
+      if (clearWeeklyUpdateBtn) {
+        clearWeeklyUpdateBtn.addEventListener('click', () => {
+          saveWeeklyUpdate('');
+        });
+      }
 
       // =======================================================
       // SECRET STATS MODALS (DOUBLE-TAP / DOUBLE-CLICK ON LOGO)
@@ -930,6 +1265,9 @@
             throw new Error(data.error || 'שגיאה בטעינת הנתונים');
           }
           cachedStats = data;
+          if (typeof data.weeklyUpdate === 'string') {
+            applyWeeklyUpdateUI(data.weeklyUpdate);
+          }
           document.getElementById('countDay').textContent = data.day.visits;
           document.getElementById('countWeek').textContent = data.week.visits;
           document.getElementById('countMonth').textContent = data.month.visits;
