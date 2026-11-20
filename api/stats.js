@@ -1,4 +1,10 @@
 const TTL_SECONDS = 45 * 24 * 60 * 60; // שמירת נתונים ל-45 ימים
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '301360';
+
+function isAuthorized(req) {
+  const provided = String(req.headers['x-admin-password'] || '').trim();
+  return provided.length > 0 && provided === ADMIN_PASSWORD;
+}
 
 function getRedisConfig() {
   const url = (
@@ -98,7 +104,7 @@ module.exports = async function handler(req, res) {
 
       const action = String(body.action || '');
 
-      // 1. רישום כניסה חדשה + מקור הגעה
+      // 1. רישום כניסה חדשה + מקור הגעה (פתוח לכל מבקר)
       if (action === 'visit') {
         const source = String(body.source || 'direct').slice(0, 40);
         await redisPipeline([
@@ -110,8 +116,12 @@ module.exports = async function handler(req, res) {
         return res.status(200).json({ ok: true, date: today });
       }
 
-      // 2. ביטול כניסה נוכחית (בלחיצה כפולה על הלוגו)
+      // 2. ביטול כניסה נוכחית (מוגן בסיסמת מנהל)
       if (action === 'cancel') {
+        if (!isAuthorized(req)) {
+          return res.status(401).json({ error: 'סיסמה שגויה' });
+        }
+
         const dateKey = /^\d{4}-\d{2}-\d{2}$/.test(String(body.date || ''))
           ? String(body.date)
           : today;
@@ -139,7 +149,7 @@ module.exports = async function handler(req, res) {
         return res.status(200).json({ ok: true, cancelled: true });
       }
 
-      // 3. רישום לחיצה על כפתור
+      // 3. רישום לחיצה על כפתור (פתוח לכל מבקר)
       if (action === 'click') {
         const button = String(body.button || '').trim().slice(0, 60);
         if (!button) return res.status(400).json({ error: 'Missing button' });
@@ -150,8 +160,12 @@ module.exports = async function handler(req, res) {
         return res.status(200).json({ ok: true });
       }
 
-      // 4. שמירה או מחיקה של "עדכון השבוע"
+      // 4. שמירה או מחיקה של "עדכון השבוע" (מוגן בסיסמת מנהל)
       if (action === 'set_update') {
+        if (!isAuthorized(req)) {
+          return res.status(401).json({ error: 'סיסמה שגויה' });
+        }
+
         const text = String(body.text || '').trim().slice(0, 220);
         if (text) {
           await redisPipeline([['SET', 'site:weekly_update', text]]);
@@ -165,7 +179,7 @@ module.exports = async function handler(req, res) {
     }
 
     if (req.method === 'GET') {
-      // שליפה מהירה של עדכון השבוע בלבד עבור כל גולש שנכנס לאתר
+      // שליפה מהירה של עדכון השבוע בלבד (פתוח לכל מבקר)
       if (
         (req.query && req.query.only === 'update') ||
         (req.url && req.url.includes('only=update'))
@@ -174,6 +188,11 @@ module.exports = async function handler(req, res) {
         return res.status(200).json({
           weeklyUpdate: resUpdate[0]?.result || '',
         });
+      }
+
+      // שליפת הסטטיסטיקות המלאות (מוגן בסיסמת מנהל)
+      if (!isAuthorized(req)) {
+        return res.status(401).json({ error: 'סיסמה שגויה' });
       }
 
       const dates = getIsraelDates(30); // 0 = היום, 0..6 = שבוע, 0..29 = חודש
