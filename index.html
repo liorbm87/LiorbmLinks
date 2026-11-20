@@ -618,92 +618,127 @@
         </button>
       </div>
 
-      <p id="statsCancelNotice" class="hidden mb-3 rounded-xl bg-vegan/15 border border-vegan/35 px-3 py-2 text-xs font-medium text-vegan text-center">
-        הכניסה הנוכחית שלך בוטלה מהספירה
-      </p>
+      <!-- Password Lock Screen (Shown until authenticated) -->
+      <div id="adminLockView" class="py-2">
+        <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gold-amber/15 border border-gold-amber/40 text-gold-light">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+        </div>
+        <p class="text-center text-sm font-bold text-white mb-1">אזור ניהול מוגן</p>
+        <p class="text-center text-xs text-zinc-400 mb-4">הזן סיסמה כדי לצפות בסטטיסטיקות ולעדכן את האתר</p>
 
-      <div id="statsLoading" class="py-8 text-center text-sm text-zinc-400">
-        טוען נתונים...
+        <form id="adminLoginForm" class="space-y-3">
+          <input
+            id="adminPasswordInput"
+            type="password"
+            inputmode="numeric"
+            autocomplete="off"
+            placeholder="••••••"
+            dir="ltr"
+            class="w-full rounded-2xl bg-obsidian-card border border-white/15 focus:border-gold-amber/80 px-4 py-3 text-center text-lg font-bold tracking-[0.35em] text-white placeholder-zinc-600 focus:outline-none"
+          />
+          <p id="adminAuthError" class="hidden text-center text-xs font-semibold text-red-400"></p>
+          <button
+            id="adminLoginBtn"
+            type="submit"
+            class="w-full rounded-full bg-gold-amber/20 hover:bg-gold-amber/30 border border-gold-amber/65 py-2.5 text-sm font-bold text-gold-light transition active:scale-[0.98]"
+          >
+            כניסה לניהול
+          </button>
+        </form>
       </div>
 
-      <div id="statsError" class="hidden py-4 text-center text-xs text-red-400 bg-red-500/10 border border-red-500/30 rounded-2xl px-3 mb-4"></div>
-
-      <div id="statsContent" class="hidden">
-        <div class="grid grid-cols-3 gap-2.5 mb-3">
-          <button
-            type="button"
-            data-period="day"
-            class="period-btn group flex flex-col items-center justify-center rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/60 hover:border-gold-light py-4 px-2 transition active:scale-95"
-          >
-            <span class="text-xs font-semibold text-zinc-400 mb-1">היום</span>
-            <span id="countDay" class="text-2xl font-extrabold text-white">0</span>
-            <span class="text-[10px] text-gold-cream/80 mt-1">לפירוט ←</span>
-          </button>
-
-          <button
-            type="button"
-            data-period="week"
-            class="period-btn group flex flex-col items-center justify-center rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/60 hover:border-gold-light py-4 px-2 transition active:scale-95"
-          >
-            <span class="text-xs font-semibold text-zinc-400 mb-1">השבוע</span>
-            <span id="countWeek" class="text-2xl font-extrabold text-white">0</span>
-            <span class="text-[10px] text-gold-cream/80 mt-1">לפירוט ←</span>
-          </button>
-
-          <button
-            type="button"
-            data-period="month"
-            class="period-btn group flex flex-col items-center justify-center rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/60 hover:border-gold-light py-4 px-2 transition active:scale-95"
-          >
-            <span class="text-xs font-semibold text-zinc-400 mb-1">החודש</span>
-            <span id="countMonth" class="text-2xl font-extrabold text-white">0</span>
-            <span class="text-[10px] text-gold-cream/80 mt-1">לפירוט ←</span>
-          </button>
-        </div>
-
-        <p class="text-[11px] text-zinc-400 text-center mb-4">
-          לחץ על יום / שבוע / חודש לפתיחת פירוט מקורות הגעה ולחיצות כפתורים
+      <!-- Authenticated Admin Dashboard -->
+      <div id="adminDashboardView" class="hidden">
+        <p id="statsCancelNotice" class="hidden mb-3 rounded-xl bg-vegan/15 border border-vegan/35 px-3 py-2 text-xs font-medium text-vegan text-center">
+          הכניסה הנוכחית שלך בוטלה מהספירה
         </p>
-      </div>
 
-      <!-- Weekly Update Editor Section -->
-      <div class="pt-3.5 pb-4 border-t border-white/10">
-        <label for="weeklyUpdateInput" class="block text-xs font-bold text-gold-cream mb-1.5">
-          עדכון השבוע (מוצג בראש האתר)
-        </label>
-        <textarea
-          id="weeklyUpdateInput"
-          rows="2"
-          maxlength="220"
-          placeholder="לדוגמה: השבוע ביריד הטבעוני בדיזנגוף סנטר • רביעי 12:00–20:00"
-          class="w-full rounded-2xl bg-obsidian-card border border-white/15 focus:border-gold-amber/75 px-3 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none resize-none"
-        ></textarea>
-        <div class="mt-2 flex items-center gap-2">
-          <button
-            id="saveWeeklyUpdateBtn"
-            type="button"
-            class="flex-1 rounded-full bg-vegan/20 hover:bg-vegan/30 border border-vegan/60 py-1.5 text-xs font-bold text-vegan transition active:scale-95"
-          >
-            שמור עדכון
-          </button>
-          <button
-            id="clearWeeklyUpdateBtn"
-            type="button"
-            class="rounded-full bg-obsidian-card hover:bg-red-500/15 border border-white/15 hover:border-red-400/50 px-3.5 py-1.5 text-xs font-bold text-zinc-300 hover:text-red-300 transition active:scale-95"
-          >
-            הסתר / מחק
-          </button>
+        <div id="statsLoading" class="py-8 text-center text-sm text-zinc-400">
+          טוען נתונים...
         </div>
-      </div>
 
-      <!-- Admin Device Ignore Toggle -->
-      <div class="pt-3 border-t border-white/10 flex items-center justify-between gap-2">
-        <span class="text-xs text-zinc-300">אל תספור את המכשיר שלי בעתיד</span>
-        <button
-          id="toggleIgnoreDevice"
-          type="button"
-          class="rounded-full px-3 py-1 text-xs font-bold border transition"
-        ></button>
+        <div id="statsError" class="hidden py-4 text-center text-xs text-red-400 bg-red-500/10 border border-red-500/30 rounded-2xl px-3 mb-4"></div>
+
+        <div id="statsContent" class="hidden">
+          <div class="grid grid-cols-3 gap-2.5 mb-3">
+            <button
+              type="button"
+              data-period="day"
+              class="period-btn group flex flex-col items-center justify-center rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/60 hover:border-gold-light py-4 px-2 transition active:scale-95"
+            >
+              <span class="text-xs font-semibold text-zinc-400 mb-1">היום</span>
+              <span id="countDay" class="text-2xl font-extrabold text-white">0</span>
+              <span class="text-[10px] text-gold-cream/80 mt-1">לפירוט ←</span>
+            </button>
+
+            <button
+              type="button"
+              data-period="week"
+              class="period-btn group flex flex-col items-center justify-center rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/60 hover:border-gold-light py-4 px-2 transition active:scale-95"
+            >
+              <span class="text-xs font-semibold text-zinc-400 mb-1">השבוע</span>
+              <span id="countWeek" class="text-2xl font-extrabold text-white">0</span>
+              <span class="text-[10px] text-gold-cream/80 mt-1">לפירוט ←</span>
+            </button>
+
+            <button
+              type="button"
+              data-period="month"
+              class="period-btn group flex flex-col items-center justify-center rounded-2xl bg-obsidian-card hover:bg-obsidian-elevated border-[1.5px] border-gold-amber/60 hover:border-gold-light py-4 px-2 transition active:scale-95"
+            >
+              <span class="text-xs font-semibold text-zinc-400 mb-1">החודש</span>
+              <span id="countMonth" class="text-2xl font-extrabold text-white">0</span>
+              <span class="text-[10px] text-gold-cream/80 mt-1">לפירוט ←</span>
+            </button>
+          </div>
+
+          <p class="text-[11px] text-zinc-400 text-center mb-4">
+            לחץ על יום / שבוע / חודש לפתיחת פירוט מקורות הגעה ולחיצות כפתורים
+          </p>
+        </div>
+
+        <!-- Weekly Update Editor Section -->
+        <div class="pt-3.5 pb-4 border-t border-white/10">
+          <label for="weeklyUpdateInput" class="block text-xs font-bold text-gold-cream mb-1.5">
+            עדכון השבוע (מוצג בראש האתר)
+          </label>
+          <textarea
+            id="weeklyUpdateInput"
+            rows="2"
+            maxlength="220"
+            placeholder="לדוגמה: השבוע ביריד הטבעוני בדיזנגוף סנטר • רביעי 12:00–20:00"
+            class="w-full rounded-2xl bg-obsidian-card border border-white/15 focus:border-gold-amber/75 px-3 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none resize-none"
+          ></textarea>
+          <div class="mt-2 flex items-center gap-2">
+            <button
+              id="saveWeeklyUpdateBtn"
+              type="button"
+              class="flex-1 rounded-full bg-vegan/20 hover:bg-vegan/30 border border-vegan/60 py-1.5 text-xs font-bold text-vegan transition active:scale-95"
+            >
+              שמור עדכון
+            </button>
+            <button
+              id="clearWeeklyUpdateBtn"
+              type="button"
+              class="rounded-full bg-obsidian-card hover:bg-red-500/15 border border-white/15 hover:border-red-400/50 px-3.5 py-1.5 text-xs font-bold text-zinc-300 hover:text-red-300 transition active:scale-95"
+            >
+              הסתר / מחק
+            </button>
+          </div>
+        </div>
+
+        <!-- Admin Device Ignore Toggle -->
+        <div class="pt-3 border-t border-white/10 flex items-center justify-between gap-2">
+          <span class="text-xs text-zinc-300">אל תספור את המכשיר שלי בעתיד</span>
+          <button
+            id="toggleIgnoreDevice"
+            type="button"
+            class="rounded-full px-3 py-1 text-xs font-bold border transition"
+          ></button>
+        </div>
       </div>
     </div>
   </div>
@@ -1127,13 +1162,40 @@
       }
 
       // =======================================================
-      // WEEKLY UPDATE BANNER (LOAD ON PAGE OPEN + ADMIN SAVE)
+      // WEEKLY UPDATE BANNER & PASSWORD-PROTECTED ADMIN MODAL
       // =======================================================
       const weeklyUpdateBanner = document.getElementById('weeklyUpdateBanner');
       const weeklyUpdateText = document.getElementById('weeklyUpdateText');
       const weeklyUpdateInput = document.getElementById('weeklyUpdateInput');
       const saveWeeklyUpdateBtn = document.getElementById('saveWeeklyUpdateBtn');
       const clearWeeklyUpdateBtn = document.getElementById('clearWeeklyUpdateBtn');
+
+      const logoTrigger = document.getElementById('logoTrigger');
+      const statsModal = document.getElementById('statsModal');
+      const closeStatsModal = document.getElementById('closeStatsModal');
+      const adminLockView = document.getElementById('adminLockView');
+      const adminLoginForm = document.getElementById('adminLoginForm');
+      const adminPasswordInput = document.getElementById('adminPasswordInput');
+      const adminAuthError = document.getElementById('adminAuthError');
+      const adminLoginBtn = document.getElementById('adminLoginBtn');
+      const adminDashboardView = document.getElementById('adminDashboardView');
+
+      const statsCancelNotice = document.getElementById('statsCancelNotice');
+      const statsLoading = document.getElementById('statsLoading');
+      const statsError = document.getElementById('statsError');
+      const statsContent = document.getElementById('statsContent');
+      const toggleIgnoreDevice = document.getElementById('toggleIgnoreDevice');
+
+      const detailModal = document.getElementById('detailModal');
+      const closeDetailModal = document.getElementById('closeDetailModal');
+      const detailTitle = document.getElementById('detailTitle');
+      const detailSubtitle = document.getElementById('detailSubtitle');
+      const sourcesList = document.getElementById('sourcesList');
+      const clicksList = document.getElementById('clicksList');
+
+      let verifiedAdminPassword = null;
+      let cachedStats = null;
+      let lastTapTime = 0;
 
       function applyWeeklyUpdateUI(text) {
         const clean = (text || '').trim();
@@ -1157,16 +1219,41 @@
         })
         .catch(() => {});
 
+      function showLockScreen(errorMsg = '') {
+        adminDashboardView.classList.add('hidden');
+        adminLockView.classList.remove('hidden');
+        adminPasswordInput.value = '';
+        if (errorMsg) {
+          adminAuthError.textContent = errorMsg;
+          adminAuthError.classList.remove('hidden');
+        } else {
+          adminAuthError.classList.add('hidden');
+        }
+        setTimeout(() => adminPasswordInput.focus(), 60);
+      }
+
       async function saveWeeklyUpdate(text) {
+        if (!verifiedAdminPassword) {
+          showLockScreen('נדרשת סיסמת מנהל');
+          return;
+        }
         saveWeeklyUpdateBtn.disabled = true;
         clearWeeklyUpdateBtn.disabled = true;
         try {
           const res = await fetch('/api/stats', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+              'Content-Type': 'application/json',
+              'x-admin-password': verifiedAdminPassword,
+            },
             body: JSON.stringify({ action: 'set_update', text }),
           });
           const data = await res.json();
+          if (res.status === 401) {
+            verifiedAdminPassword = null;
+            showLockScreen('הסיסמה אינה תקינה, הזן שוב');
+            return;
+          }
           if (!res.ok) throw new Error(data.error || 'שגיאה בשמירה');
           applyWeeklyUpdateUI(data.weeklyUpdate);
           showToast(data.weeklyUpdate ? 'עדכון השבוע נשמר ומוצג באתר!' : 'עדכון השבוע הוסתר');
@@ -1190,28 +1277,6 @@
         });
       }
 
-      // =======================================================
-      // SECRET STATS MODALS (DOUBLE-TAP / DOUBLE-CLICK ON LOGO)
-      // =======================================================
-      const logoTrigger = document.getElementById('logoTrigger');
-      const statsModal = document.getElementById('statsModal');
-      const closeStatsModal = document.getElementById('closeStatsModal');
-      const statsCancelNotice = document.getElementById('statsCancelNotice');
-      const statsLoading = document.getElementById('statsLoading');
-      const statsError = document.getElementById('statsError');
-      const statsContent = document.getElementById('statsContent');
-      const toggleIgnoreDevice = document.getElementById('toggleIgnoreDevice');
-
-      const detailModal = document.getElementById('detailModal');
-      const closeDetailModal = document.getElementById('closeDetailModal');
-      const detailTitle = document.getElementById('detailTitle');
-      const detailSubtitle = document.getElementById('detailSubtitle');
-      const sourcesList = document.getElementById('sourcesList');
-      const clicksList = document.getElementById('clicksList');
-
-      let cachedStats = null;
-      let lastTapTime = 0;
-
       function updateIgnoreButtonUI() {
         const ignored = localStorage.getItem(IGNORE_KEY) === 'true';
         if (ignored) {
@@ -1232,46 +1297,79 @@
         showToast(next ? 'המכשיר שלך לא ייספר בכניסות הבאות' : 'המכשיר שלך ייספר כרגיל');
       });
 
-      async function openStatsModal() {
-        statsModal.classList.remove('hidden');
-        statsLoading.classList.remove('hidden');
-        statsContent.classList.add('hidden');
-        statsError.classList.add('hidden');
-
-        // ביטול הכניסה הנוכחית אם נספרה בדף זה
+      async function loadAuthenticatedDashboard(password) {
+        // ביטול הכניסה הנוכחית רק לאחר אימות הסיסמה
         if (visitPromise) {
           await visitPromise;
         }
         if (visitCounted && !visitCancelled) {
-          try {
-            await fetch('/api/stats', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                action: 'cancel',
-                source: currentSource,
-                date: visitDate,
-              }),
-            });
+          const cancelRes = await fetch('/api/stats', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-admin-password': password,
+            },
+            body: JSON.stringify({
+              action: 'cancel',
+              source: currentSource,
+              date: visitDate,
+            }),
+          });
+          if (cancelRes.status === 401) {
+            return { unauthorized: true };
+          }
+          if (cancelRes.ok) {
             visitCancelled = true;
             statsCancelNotice.classList.remove('hidden');
-          } catch {}
+          }
         }
 
-        // שליפת הנתונים העדכניים מ-Upstash
+        // שליפת הנתונים העדכניים מ-Upstash עם אימות הסיסמה
+        const res = await fetch('/api/stats', {
+          headers: { 'x-admin-password': password },
+        });
+        if (res.status === 401) {
+          return { unauthorized: true };
+        }
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.error || 'שגיאה בטעינת הנתונים');
+        }
+
+        verifiedAdminPassword = password;
+        cachedStats = data;
+        if (typeof data.weeklyUpdate === 'string') {
+          applyWeeklyUpdateUI(data.weeklyUpdate);
+        }
+        document.getElementById('countDay').textContent = data.day.visits;
+        document.getElementById('countWeek').textContent = data.week.visits;
+        document.getElementById('countMonth').textContent = data.month.visits;
+        return { unauthorized: false };
+      }
+
+      async function openStatsModal() {
+        statsModal.classList.remove('hidden');
+
+        // אם טרם אומתה סיסמה בטעינה הנוכחית — הצג מסך סיסמה
+        if (!verifiedAdminPassword) {
+          showLockScreen();
+          return;
+        }
+
+        // אם כבר אומת — פתח ישירות את לוח הניהול ורענן נתונים
+        adminLockView.classList.add('hidden');
+        adminDashboardView.classList.remove('hidden');
+        statsLoading.classList.remove('hidden');
+        statsContent.classList.add('hidden');
+        statsError.classList.add('hidden');
+
         try {
-          const res = await fetch('/api/stats');
-          const data = await res.json();
-          if (!res.ok) {
-            throw new Error(data.error || 'שגיאה בטעינת הנתונים');
+          const result = await loadAuthenticatedDashboard(verifiedAdminPassword);
+          if (result.unauthorized) {
+            verifiedAdminPassword = null;
+            showLockScreen('סיסמה שגויה, נסה שוב');
+            return;
           }
-          cachedStats = data;
-          if (typeof data.weeklyUpdate === 'string') {
-            applyWeeklyUpdateUI(data.weeklyUpdate);
-          }
-          document.getElementById('countDay').textContent = data.day.visits;
-          document.getElementById('countWeek').textContent = data.week.visits;
-          document.getElementById('countMonth').textContent = data.month.visits;
           statsLoading.classList.add('hidden');
           statsContent.classList.remove('hidden');
         } catch (err) {
@@ -1279,6 +1377,44 @@
           statsError.textContent = err.message || 'לא ניתן לטעון סטטיסטיקות כרגע';
           statsError.classList.remove('hidden');
         }
+      }
+
+      if (adminLoginForm) {
+        adminLoginForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const entered = adminPasswordInput.value.trim();
+          if (!entered) {
+            adminAuthError.textContent = 'יש להזין סיסמה';
+            adminAuthError.classList.remove('hidden');
+            return;
+          }
+
+          adminAuthError.classList.add('hidden');
+          adminLoginBtn.disabled = true;
+          adminLoginBtn.textContent = 'בודק סיסמה...';
+
+          try {
+            const result = await loadAuthenticatedDashboard(entered);
+            if (result.unauthorized) {
+              adminAuthError.textContent = 'סיסמה שגויה, נסה שוב';
+              adminAuthError.classList.remove('hidden');
+              adminPasswordInput.value = '';
+              adminPasswordInput.focus();
+              return;
+            }
+            adminLockView.classList.add('hidden');
+            adminDashboardView.classList.remove('hidden');
+            statsLoading.classList.add('hidden');
+            statsError.classList.add('hidden');
+            statsContent.classList.remove('hidden');
+          } catch (err) {
+            adminAuthError.textContent = err.message || 'שגיאה בחיבור לשרת';
+            adminAuthError.classList.remove('hidden');
+          } finally {
+            adminLoginBtn.disabled = false;
+            adminLoginBtn.textContent = 'כניסה לניהול';
+          }
+        });
       }
 
       function renderBreakdownRows(container, dataObj, labelMap, barColorClass, emptyText) {
