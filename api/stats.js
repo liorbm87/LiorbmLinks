@@ -160,33 +160,56 @@ module.exports = async function handler(req, res) {
         return res.status(200).json({ ok: true });
       }
 
-      // 4. שמירה או מחיקה של "עדכון השבוע" (מוגן בסיסמת מנהל)
+      // 4. שמירה או מחיקה של "עדכון השבוע" + קישור תמונה (מוגן בסיסמת מנהל)
       if (action === 'set_update') {
         if (!isAuthorized(req)) {
           return res.status(401).json({ error: 'סיסמה שגויה' });
         }
 
         const text = String(body.text || '').trim().slice(0, 220);
+        const rawImage = String(body.image || '').trim().slice(0, 1000);
+        const image =
+          /^https?:\/\//i.test(rawImage) || /^[a-zA-Z0-9._\-\/~]+$/.test(rawImage)
+            ? rawImage
+            : '';
+
+        const cmds = [];
         if (text) {
-          await redisPipeline([['SET', 'site:weekly_update', text]]);
+          cmds.push(['SET', 'site:weekly_update', text]);
         } else {
-          await redisPipeline([['DEL', 'site:weekly_update']]);
+          cmds.push(['DEL', 'site:weekly_update']);
         }
-        return res.status(200).json({ ok: true, weeklyUpdate: text });
+
+        if (image) {
+          cmds.push(['SET', 'site:weekly_update_image', image]);
+        } else {
+          cmds.push(['DEL', 'site:weekly_update_image']);
+        }
+
+        await redisPipeline(cmds);
+        return res.status(200).json({
+          ok: true,
+          weeklyUpdate: text,
+          weeklyUpdateImage: image,
+        });
       }
 
       return res.status(400).json({ error: 'Unknown action' });
     }
 
     if (req.method === 'GET') {
-      // שליפה מהירה של עדכון השבוע בלבד (פתוח לכל מבקר)
+      // שליפה מהירה של עדכון השבוע והתמונה בלבד (פתוח לכל מבקר)
       if (
         (req.query && req.query.only === 'update') ||
         (req.url && req.url.includes('only=update'))
       ) {
-        const resUpdate = await redisPipeline([['GET', 'site:weekly_update']]);
+        const resUpdate = await redisPipeline([
+          ['GET', 'site:weekly_update'],
+          ['GET', 'site:weekly_update_image'],
+        ]);
         return res.status(200).json({
           weeklyUpdate: resUpdate[0]?.result || '',
+          weeklyUpdateImage: resUpdate[1]?.result || '',
         });
       }
 
@@ -203,6 +226,7 @@ module.exports = async function handler(req, res) {
         ...dates.map((d) => ['HGETALL', `stats:s:${d}`]),
         ...dates.map((d) => ['HGETALL', `stats:c:${d}`]),
         ['GET', 'site:weekly_update'],
+        ['GET', 'site:weekly_update_image'],
       ];
 
       const results = await redisPipeline(commands);
@@ -231,6 +255,7 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({
         todayDate: today,
         weeklyUpdate: results[61]?.result || '',
+        weeklyUpdateImage: results[62]?.result || '',
         day: aggregate(1),
         week: aggregate(7),
         month: aggregate(30),
