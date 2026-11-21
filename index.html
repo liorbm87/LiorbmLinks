@@ -208,21 +208,32 @@
       <!-- ======================================================= -->
       <!-- WEEKLY UPDATE BANNER (EDITABLE VIA DOUBLE-TAP ON LOGO)  -->
       <!-- Hidden completely if there is no text and no image      -->
-      <!-- Image sits on the left matching CTA button thumbnail    -->
+      <!-- Optional link makes right area clickable; image zooms   -->
       <!-- ======================================================= -->
       <section id="weeklyUpdateBanner" aria-label="עדכון השבוע" class="hidden mb-4 opacity-0 animate-fade-up [animation-delay:50ms]">
-        <div class="flex items-stretch justify-between gap-2 rounded-[26px] bg-gradient-to-l from-gold-amber/15 via-obsidian-card to-obsidian-card border-[1.5px] border-gold-amber/55 p-1.5 shadow-card">
-          <!-- Right Side: Label & Text -->
-          <div class="flex flex-1 items-start gap-2.5 pr-3 pl-1 py-2.5 min-w-0">
+        <div id="weeklyUpdateBox" class="group/upd flex items-stretch justify-between gap-2 rounded-[26px] bg-gradient-to-l from-gold-amber/15 via-obsidian-card to-obsidian-card border-[1.5px] border-gold-amber/55 p-1.5 shadow-card transition-all duration-200">
+          <!-- Right Side: Label, Text & Optional Link -->
+          <a
+            id="weeklyUpdateLinkWrap"
+            class="flex flex-1 items-start gap-2.5 pr-3 pl-1 py-2.5 min-w-0 rounded-[20px] transition-transform focus:outline-none"
+          >
             <span class="relative mt-1 flex h-2.5 w-2.5 shrink-0">
               <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold-amber opacity-75"></span>
               <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-gold-amber"></span>
             </span>
             <div class="text-right leading-snug flex-1 min-w-0">
-              <span class="text-[11px] font-extrabold text-gold-light tracking-wide block mb-0.5">עדכון השבוע</span>
+              <div class="flex items-center gap-1.5 mb-0.5">
+                <span class="text-[11px] font-extrabold text-gold-light tracking-wide">עדכון השבוע</span>
+                <span id="weeklyUpdateLinkHint" class="hidden inline-flex items-center gap-0.5 text-[10.5px] font-bold text-gold-cream/90">
+                  <span>• למעבר לקישור</span>
+                  <svg class="h-3 w-3 shrink-0 transition-transform duration-200 group-hover/upd:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                </span>
+              </div>
               <p id="weeklyUpdateText" class="text-[13px] font-medium text-zinc-100 whitespace-pre-line break-words"></p>
             </div>
-          </div>
+          </a>
 
           <!-- Left Side: Square Thumbnail matching CTA button (tap for large preview) -->
           <button
@@ -727,7 +738,7 @@
           </p>
         </div>
 
-        <!-- Weekly Update Editor Section (Text + Image URL + Live Preview) -->
+        <!-- Weekly Update Editor Section (Text + Image URL + Optional Link) -->
         <div class="pt-3.5 pb-4 border-t border-white/10">
           <label for="weeklyUpdateInput" class="block text-xs font-bold text-gold-cream mb-1.5">
             עדכון השבוע (מוצג בראש האתר)
@@ -776,6 +787,27 @@
               class="shrink-0 rounded-full bg-obsidian-elevated hover:bg-red-500/20 border border-white/15 hover:border-red-400/50 px-2.5 py-1 text-[11px] font-bold text-zinc-300 hover:text-red-300 transition"
             >
               נקה תמונה
+            </button>
+          </div>
+
+          <!-- Optional Destination Link Input for Weekly Update -->
+          <label for="weeklyUpdateLinkInput" class="block text-xs font-bold text-gold-cream mt-3 mb-1.5">
+            קישור אופציונלי לעדכון (לחיצה על העדכון תפתח אותו)
+          </label>
+          <div class="flex items-center gap-1.5">
+            <input
+              id="weeklyUpdateLinkInput"
+              type="url"
+              dir="ltr"
+              placeholder="https://liorbenmoshe.vercel.app/"
+              class="flex-1 min-w-0 rounded-2xl bg-obsidian-card border border-white/15 focus:border-gold-amber/75 px-3 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none"
+            />
+            <button
+              id="clearWeeklyUpdateLinkBtn"
+              type="button"
+              class="hidden shrink-0 rounded-full bg-obsidian-elevated hover:bg-red-500/20 border border-white/15 hover:border-red-400/50 px-2.5 py-1.5 text-[11px] font-bold text-zinc-300 hover:text-red-300 transition"
+            >
+              נקה
             </button>
           </div>
 
@@ -1507,6 +1539,9 @@
       // WEEKLY UPDATE BANNER & PASSWORD-PROTECTED ADMIN MODAL
       // =======================================================
       const weeklyUpdateBanner = document.getElementById('weeklyUpdateBanner');
+      const weeklyUpdateBox = document.getElementById('weeklyUpdateBox');
+      const weeklyUpdateLinkWrap = document.getElementById('weeklyUpdateLinkWrap');
+      const weeklyUpdateLinkHint = document.getElementById('weeklyUpdateLinkHint');
       const weeklyUpdateText = document.getElementById('weeklyUpdateText');
       const weeklyUpdateImageWrap = document.getElementById('weeklyUpdateImageWrap');
       const weeklyUpdateImage = document.getElementById('weeklyUpdateImage');
@@ -1518,6 +1553,8 @@
       const weeklyUpdateImagePreviewError = document.getElementById('weeklyUpdateImagePreviewError');
       const weeklyUpdateImagePreviewOk = document.getElementById('weeklyUpdateImagePreviewOk');
       const clearWeeklyUpdateImageBtn = document.getElementById('clearWeeklyUpdateImageBtn');
+      const weeklyUpdateLinkInput = document.getElementById('weeklyUpdateLinkInput');
+      const clearWeeklyUpdateLinkBtn = document.getElementById('clearWeeklyUpdateLinkBtn');
       const saveWeeklyUpdateBtn = document.getElementById('saveWeeklyUpdateBtn');
       const clearWeeklyUpdateBtn = document.getElementById('clearWeeklyUpdateBtn');
 
@@ -1565,6 +1602,11 @@
         weeklyUpdateImagePreview.src = clean;
       }
 
+      function syncClearLinkBtn() {
+        if (!clearWeeklyUpdateLinkBtn || !weeklyUpdateLinkInput) return;
+        clearWeeklyUpdateLinkBtn.classList.toggle('hidden', !weeklyUpdateLinkInput.value.trim());
+      }
+
       if (weeklyUpdateImagePreview) {
         weeklyUpdateImagePreview.addEventListener('error', () => {
           if (!weeklyUpdateImageInput.value.trim()) return;
@@ -1598,6 +1640,25 @@
         });
       }
 
+      if (weeklyUpdateLinkInput) {
+        weeklyUpdateLinkInput.addEventListener('input', syncClearLinkBtn);
+      }
+
+      if (clearWeeklyUpdateLinkBtn) {
+        clearWeeklyUpdateLinkBtn.addEventListener('click', () => {
+          weeklyUpdateLinkInput.value = '';
+          syncClearLinkBtn();
+        });
+      }
+
+      if (weeklyUpdateLinkWrap) {
+        weeklyUpdateLinkWrap.addEventListener('click', () => {
+          if (weeklyUpdateLinkWrap.hasAttribute('href')) {
+            trackButtonClick('עדכון השבוע');
+          }
+        });
+      }
+
       if (weeklyUpdateImage) {
         weeklyUpdateImage.addEventListener('error', () => {
           weeklyUpdateImageWrap.classList.add('hidden');
@@ -1616,14 +1677,17 @@
         });
       }
 
-      function applyWeeklyUpdateUI(text, image) {
+      function applyWeeklyUpdateUI(text, image, link) {
         const cleanText = (text || '').trim();
         const cleanImage = (image || '').trim();
+        const cleanLink = (link || '').trim();
         currentWeeklyUpdateImage = cleanImage;
 
         if (weeklyUpdateInput) weeklyUpdateInput.value = cleanText;
         if (weeklyUpdateImageInput) weeklyUpdateImageInput.value = cleanImage;
+        if (weeklyUpdateLinkInput) weeklyUpdateLinkInput.value = cleanLink;
         updateAdminImagePreview(cleanImage);
+        syncClearLinkBtn();
 
         if (cleanText || cleanImage) {
           if (cleanText) {
@@ -1642,21 +1706,45 @@
             weeklyUpdateImageWrap.classList.add('hidden');
           }
 
+          if (cleanLink) {
+            weeklyUpdateLinkWrap.setAttribute('href', cleanLink);
+            weeklyUpdateLinkWrap.setAttribute('target', '_blank');
+            weeklyUpdateLinkWrap.setAttribute('rel', 'noopener noreferrer');
+            weeklyUpdateLinkWrap.classList.add('cursor-pointer', 'active:scale-[0.985]', 'focus:ring-2', 'focus:ring-gold-amber/60');
+            weeklyUpdateBox.classList.add('hover:border-gold-light', 'hover:-translate-y-0.5', 'hover:shadow-card-hover');
+            weeklyUpdateLinkHint.classList.remove('hidden');
+          } else {
+            weeklyUpdateLinkWrap.removeAttribute('href');
+            weeklyUpdateLinkWrap.removeAttribute('target');
+            weeklyUpdateLinkWrap.removeAttribute('rel');
+            weeklyUpdateLinkWrap.classList.remove('cursor-pointer', 'active:scale-[0.985]', 'focus:ring-2', 'focus:ring-gold-amber/60');
+            weeklyUpdateBox.classList.remove('hover:border-gold-light', 'hover:-translate-y-0.5', 'hover:shadow-card-hover');
+            weeklyUpdateLinkHint.classList.add('hidden');
+          }
+
           weeklyUpdateBanner.classList.remove('hidden');
         } else {
           weeklyUpdateText.textContent = '';
           weeklyUpdateImage.removeAttribute('src');
           weeklyUpdateImageWrap.classList.add('hidden');
+          weeklyUpdateLinkWrap.removeAttribute('href');
+          weeklyUpdateLinkWrap.removeAttribute('target');
+          weeklyUpdateLinkWrap.removeAttribute('rel');
+          weeklyUpdateLinkHint.classList.add('hidden');
           weeklyUpdateBanner.classList.add('hidden');
         }
       }
 
-      // Load current weekly update + image for all visitors
+      // Load current weekly update + image + optional link for all visitors
       fetch('/api/stats?only=update')
         .then((res) => (res.ok ? res.json() : null))
         .then((data) => {
           if (data) {
-            applyWeeklyUpdateUI(data.weeklyUpdate || '', data.weeklyUpdateImage || '');
+            applyWeeklyUpdateUI(
+              data.weeklyUpdate || '',
+              data.weeklyUpdateImage || '',
+              data.weeklyUpdateLink || ''
+            );
           }
         })
         .catch(() => {});
@@ -1674,7 +1762,7 @@
         setTimeout(() => adminPasswordInput.focus(), 60);
       }
 
-      async function saveWeeklyUpdate(text, image) {
+      async function saveWeeklyUpdate(text, image, link) {
         if (!verifiedAdminPassword) {
           showLockScreen('נדרשת סיסמת מנהל');
           return;
@@ -1688,7 +1776,7 @@
               'Content-Type': 'application/json',
               'x-admin-password': verifiedAdminPassword,
             },
-            body: JSON.stringify({ action: 'set_update', text, image }),
+            body: JSON.stringify({ action: 'set_update', text, image, link }),
           });
           const data = await res.json();
           if (res.status === 401) {
@@ -1697,7 +1785,11 @@
             return;
           }
           if (!res.ok) throw new Error(data.error || 'שגיאה בשמירה');
-          applyWeeklyUpdateUI(data.weeklyUpdate || '', data.weeklyUpdateImage || '');
+          applyWeeklyUpdateUI(
+            data.weeklyUpdate || '',
+            data.weeklyUpdateImage || '',
+            data.weeklyUpdateLink || ''
+          );
           const hasAny = Boolean((data.weeklyUpdate || '').trim() || (data.weeklyUpdateImage || '').trim());
           showToast(hasAny ? 'עדכון השבוע נשמר ומוצג באתר!' : 'עדכון השבוע הוסתר');
         } catch (err) {
@@ -1710,13 +1802,17 @@
 
       if (saveWeeklyUpdateBtn) {
         saveWeeklyUpdateBtn.addEventListener('click', () => {
-          saveWeeklyUpdate(weeklyUpdateInput.value, weeklyUpdateImageInput.value);
+          saveWeeklyUpdate(
+            weeklyUpdateInput.value,
+            weeklyUpdateImageInput.value,
+            weeklyUpdateLinkInput.value
+          );
         });
       }
 
       if (clearWeeklyUpdateBtn) {
         clearWeeklyUpdateBtn.addEventListener('click', () => {
-          saveWeeklyUpdate('', '');
+          saveWeeklyUpdate('', '', '');
         });
       }
 
@@ -1781,7 +1877,11 @@
 
         verifiedAdminPassword = password;
         cachedStats = data;
-        applyWeeklyUpdateUI(data.weeklyUpdate || '', data.weeklyUpdateImage || '');
+        applyWeeklyUpdateUI(
+          data.weeklyUpdate || '',
+          data.weeklyUpdateImage || '',
+          data.weeklyUpdateLink || ''
+        );
         document.getElementById('countDay').textContent = data.day.visits;
         document.getElementById('countWeek').textContent = data.week.visits;
         document.getElementById('countMonth').textContent = data.month.visits;
