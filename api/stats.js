@@ -78,6 +78,18 @@ function mergeHashes(target, sourceObj) {
   }
 }
 
+function sanitizeSafeUrl(raw) {
+  const str = String(raw || '').trim().slice(0, 1000);
+  if (!str) return '';
+  if (/^https?:\/\//i.test(str)) {
+    return str;
+  }
+  if (/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/[^\s]*)?$/.test(str)) {
+    return `https://${str}`;
+  }
+  return '';
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store, max-age=0');
 
@@ -160,7 +172,7 @@ module.exports = async function handler(req, res) {
         return res.status(200).json({ ok: true });
       }
 
-      // 4. שמירה או מחיקה של "עדכון השבוע" + קישור תמונה (מוגן בסיסמת מנהל)
+      // 4. שמירה או מחיקה של "עדכון השבוע" + תמונה + קישור אופציונלי (מוגן בסיסמת מנהל)
       if (action === 'set_update') {
         if (!isAuthorized(req)) {
           return res.status(401).json({ error: 'סיסמה שגויה' });
@@ -172,6 +184,7 @@ module.exports = async function handler(req, res) {
           /^https?:\/\//i.test(rawImage) || /^[a-zA-Z0-9._\-\/~]+$/.test(rawImage)
             ? rawImage
             : '';
+        const link = sanitizeSafeUrl(body.link);
 
         const cmds = [];
         if (text) {
@@ -186,11 +199,18 @@ module.exports = async function handler(req, res) {
           cmds.push(['DEL', 'site:weekly_update_image']);
         }
 
+        if (link) {
+          cmds.push(['SET', 'site:weekly_update_link', link]);
+        } else {
+          cmds.push(['DEL', 'site:weekly_update_link']);
+        }
+
         await redisPipeline(cmds);
         return res.status(200).json({
           ok: true,
           weeklyUpdate: text,
           weeklyUpdateImage: image,
+          weeklyUpdateLink: link,
         });
       }
 
@@ -198,7 +218,7 @@ module.exports = async function handler(req, res) {
     }
 
     if (req.method === 'GET') {
-      // שליפה מהירה של עדכון השבוע והתמונה בלבד (פתוח לכל מבקר)
+      // שליפה מהירה של עדכון השבוע, התמונה והקישור בלבד (פתוח לכל מבקר)
       if (
         (req.query && req.query.only === 'update') ||
         (req.url && req.url.includes('only=update'))
@@ -206,10 +226,12 @@ module.exports = async function handler(req, res) {
         const resUpdate = await redisPipeline([
           ['GET', 'site:weekly_update'],
           ['GET', 'site:weekly_update_image'],
+          ['GET', 'site:weekly_update_link'],
         ]);
         return res.status(200).json({
           weeklyUpdate: resUpdate[0]?.result || '',
           weeklyUpdateImage: resUpdate[1]?.result || '',
+          weeklyUpdateLink: resUpdate[2]?.result || '',
         });
       }
 
@@ -227,6 +249,7 @@ module.exports = async function handler(req, res) {
         ...dates.map((d) => ['HGETALL', `stats:c:${d}`]),
         ['GET', 'site:weekly_update'],
         ['GET', 'site:weekly_update_image'],
+        ['GET', 'site:weekly_update_link'],
       ];
 
       const results = await redisPipeline(commands);
@@ -256,6 +279,7 @@ module.exports = async function handler(req, res) {
         todayDate: today,
         weeklyUpdate: results[61]?.result || '',
         weeklyUpdateImage: results[62]?.result || '',
+        weeklyUpdateLink: results[63]?.result || '',
         day: aggregate(1),
         week: aggregate(7),
         month: aggregate(30),
