@@ -156,7 +156,15 @@
       <!-- ======================================================= -->
       <!-- HEADER: OFFICIAL TRANSPARENT LOGO & BRAND IDENTITY      -->
       <!-- ======================================================= -->
-      <header class="flex flex-col items-center text-center mb-5 pt-1 opacity-0 animate-fade-up">
+      <header class="relative flex flex-col items-center text-center mb-5 pt-1 opacity-0 animate-fade-up">
+
+        <!-- דמות השף בצד ימין של הלוגו -->
+        <img
+          id="chefCharTrigger"
+          src="chart.png"
+          alt="דמות השף"
+          class="absolute top-6 right-0 sm:top-5 sm:right-1 z-20 h-[130px] sm:h-[155px] w-auto object-contain cursor-pointer select-none drop-shadow-xl transition-all duration-300 active:scale-95"
+        />
 
         <!-- Official Brand Logo (Transparent, no background, no border; double-tap opens stats) -->
         <div id="logoTrigger" class="mb-3 flex items-center justify-center cursor-pointer select-none touch-manipulation">
@@ -958,6 +966,32 @@
       dir="ltr"
       class="hidden mt-4 flex items-center justify-center gap-2"
     ></div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- CHEF CHARACTER 4X ZOOM OVERLAY (TRANSPARENT BACKGROUND)   -->
+  <!-- ========================================================= -->
+  <div
+    id="chefCharOverlay"
+    aria-hidden="true"
+    class="fixed inset-0 z-[80] flex items-center justify-center pointer-events-none opacity-0 scale-[0.25] transition-all duration-500 ease-out"
+  >
+    <div id="chefCharBox" class="relative pointer-events-none">
+      <button
+        id="closeChefCharBtn"
+        type="button"
+        aria-label="סגור"
+        class="absolute -top-2 -left-2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-obsidian-card/90 hover:bg-red-600 text-white border border-gold-amber/60 text-sm font-bold shadow-xl transition-all active:scale-90 cursor-pointer"
+      >
+        ✕
+      </button>
+      <img
+        id="chefCharZoomImg"
+        src="chart.png"
+        alt="דמות השף מוגדלת"
+        class="h-[480px] sm:h-[580px] max-h-[82vh] max-w-[90vw] w-auto object-contain cursor-pointer select-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.75)]"
+      />
+    </div>
   </div>
 
   <!-- ========================================================= -->
@@ -2032,6 +2066,61 @@
       detailModal.addEventListener('click', (e) => {
         if (e.target === detailModal) detailModal.classList.add('hidden');
       });
+
+      // =======================================================
+      // CHEF CHARACTER 4X ZOOM INTERACTION (CLICK / X / SCROLL)
+      // =======================================================
+      const chefCharTrigger = document.getElementById('chefCharTrigger');
+      const chefCharOverlay = document.getElementById('chefCharOverlay');
+      const chefCharBox = document.getElementById('chefCharBox');
+      const closeChefCharBtn = document.getElementById('closeChefCharBtn');
+      const chefCharZoomImg = document.getElementById('chefCharZoomImg');
+
+      let isChefCharZoomed = false;
+      let chefZoomStartY = 0;
+
+      function openChefCharZoom() {
+        if (!chefCharTrigger || !chefCharOverlay || !chefCharBox) return;
+        isChefCharZoomed = true;
+        chefZoomStartY = window.scrollY;
+
+        chefCharTrigger.classList.add('opacity-0', 'scale-75', 'pointer-events-none');
+        chefCharOverlay.classList.remove('opacity-0', 'scale-[0.25]');
+        chefCharOverlay.classList.add('opacity-100', 'scale-100');
+        chefCharOverlay.setAttribute('aria-hidden', 'false');
+        chefCharBox.classList.remove('pointer-events-none');
+        chefCharBox.classList.add('pointer-events-auto');
+      }
+
+      function closeChefCharZoom() {
+        if (!isChefCharZoomed || !chefCharTrigger || !chefCharOverlay || !chefCharBox) return;
+        isChefCharZoomed = false;
+
+        chefCharTrigger.classList.remove('opacity-0', 'scale-75', 'pointer-events-none');
+        chefCharOverlay.classList.remove('opacity-100', 'scale-100');
+        chefCharOverlay.classList.add('opacity-0', 'scale-[0.25]');
+        chefCharOverlay.setAttribute('aria-hidden', 'true');
+        chefCharBox.classList.remove('pointer-events-auto');
+        chefCharBox.classList.add('pointer-events-none');
+      }
+
+      if (chefCharTrigger) {
+        chefCharTrigger.addEventListener('click', openChefCharZoom);
+      }
+      if (closeChefCharBtn) {
+        closeChefCharBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeChefCharZoom();
+        });
+      }
+      if (chefCharZoomImg) {
+        chefCharZoomImg.addEventListener('click', closeChefCharZoom);
+      }
+      window.addEventListener('scroll', () => {
+        if (isChefCharZoomed && Math.abs(window.scrollY - chefZoomStartY) > 10) {
+          closeChefCharZoom();
+        }
+      }, { passive: true });
     })();
   </script>
 </body>
